@@ -1,13 +1,216 @@
-html,body{
-    height: 100vh;
-    width: 100vw;
-    background-image: url("background.jpg");
-    background-position: 0%
-    9%;
-    background-size: cover;
-    background-repeat: no-repeat;
+
+*{
+    font-family: montserrat, monospace;
 }
 
-.navbar{
+.sectionOne{
+    -webkit-box-shadow: 0px 1px 24px -9px rgba(0,0,0,0.68);
+    -moz-box-shadow: 0px 1px 24px -9px rgba(0,0,0,0.68);
+    box-shadow: 0px 1px 24px -9px rgba(0,0,0,0.68);
+width: 100%;
+    padding: unset !important;
+    margin: unset !important;
+}
+.left{
+    padding-left: unset !important;
+    background-color: #ffffff;
+
+}
+.body_title{
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 76px;
+
+   color: gray;
+
+
+}
+.fa{
+    color: #32d6be;
+    font-size: 28px !important;
+}
+.list_item{
+    margin-left: 12px;
+}
+.list{
+    margin: 33px !important;
+    margin-left: -37px !important;
+}
+.info-title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+
+
+    color: #515151;
+}
+.info{
+    padding-left: 71px !important;
+    /* padding-right: 28px !important; */
+    padding-top: 46px !important;
+
+
+}
+textarea,textarea:focus{
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.right{
+    padding: unset !important;
+}
+.background-color{
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #32d6be;
+    position: absolute;
+    z-index: 1;
+    opacity: 0.91;
+
+}
+.picture{
+    height: 100%;
+    width: 100%;
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 0;
+}
+.contact-form{
+    margin-left: 145px;
+    width:75%;
+    position: relative;
+    z-index: 3;
+    padding: 80px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+textarea{
+    width: 100%;
+}
+.btn-form{
+    background-color: white;
+    /* padding-right: 18px; */
+    width: 187px;
+    padding: 13px;
+    /* padding-left: 18px; */
+    font-size: 14px;
+    color: #32D6BE;
+}
+.btn-left:hover{
+    background-color: #2cb7a1;
+}
+
+textarea::placeholder{
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #d7d7d7;
+}
+input::placeholder{
+    color: #d7d7d7;
+
+}
+.btn-left:focus{
+    outline: none;
+}
+.btn-form:hover{
+    background-color: #f4f4f4;
+}
+.btn-left{
+    border-radius: 10px;
+    border: none;
+    background-color: #32D6BE;
+    /* padding-right: 18px; */
+    width: 187px;
+    padding: 13px;
+    /* padding-left: 18px; */
+    font-size: 14px;
+    color: white;
+}
+input:focus{
+    outline: none;
+}
+
+input{
+    padding: 15px;
+
+    border-radius:10px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px !important;
+}
+
+li{
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+
+    color: #515151;
+    margin-bottom: 10px;
+    list-style: none;
+}
+.title{
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    z-index: 4;
+    transform: rotate(-90deg);
+    top: 205px;
+    opacity: 0.7;
+    left: 65px;
+}
+
+
+@media only screen and (max-width: 600px){
+.input{
+    width: 100%;
+}
+   .title{
+        display: none;
+    }
+   .contact-form{
+       margin: unset !important;
+       width:100%;
+       position: relative;
+       z-index: 3;
+       padding: 45px !important;
+
+   }
+   .btn-form{
+       border-radius: 10px;
+       border: none;
+       margin:0 auto;
+       display:block;
+       background-color: white;
+       /* padding-right: 18px; */
+       width: 70%;
+       padding: 14px;
+       /* padding-left: 18px; */
+       font-size: 14px;
+       color: #32D6BE;
+   }
+   .btn-left{
+
+       display:block;
+       border-radius: 10px;
+       border: none;
+       background-color: #32D6BE;
+       /* padding-right: 18px; */
+       width: 70%px;
+       padding: 14px;
+       /* padding-left: 18px; */
+       font-size: 14px;
+       color: white;
+   }
 
 }
