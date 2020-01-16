@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--    <link rel="stylesheet" href="../bootstrap/UniversalStyle.css">-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,34 +14,75 @@
 </head>
 <body>
 <h3 class="body_title">Section#2</h3>
+<div class="sec2 wow  headShake">
 
-<div >
-    <div class="top">
-        <div class="bg-top-color">
-            <div class="row">
-                <div class="top-info col-sm-6">
 
-                    <h3>Lorem ipsum dolor sit amet, consectetur.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda blanditiis consectetur consequuntur doloribus, ipsum laborum necessitatibus non, quaerat qui quo quod, repudiandae voluptate. A assumenda expedita natus sit tempore.</p>
-                    <a href="#" class="btn-success top-btn">LEARN MORE</a>
-
-                </div>
-                <div class="bg-pic col-sm-6">
-<!--                    <img class="bg-pic" src="background.jpg" alt="" height="auto" width="100%">-->
-                </div>
+    <div class="top col-sm-12 wow slideInDown" >
+        <div class="top-info col-sm-6">
+            <div class="top-text">
+                <h3>Lorem ipsum dolor sit amet, consectetur.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda blanditiis consectetur consequuntur doloribus, ipsum laborum necessitatibus non, quaerat qui quo quod, repudiandae voluptate. A assumenda expedita natus sit tempore.</p>
+<!--                <a >LEARN MORE</a>-->
+                <button href="#" class="top-btn" >LEARN MORE</button>
             </div>
+        </div>
+        <div class="bg-left col-sm-12">
+
 
         </div>
 
-    </div>
-    <div class="bottom">
+            <div class="bg-top-color col-sm-12">
+
+            </div>
+
 
     </div>
+
+    <div class="bottom col-xl-12 wow slideInUp">
+
+        <div class="bottom-info row">
+            <div class="col-xl-6 col-sm-6">
+
+            </div>
+            <div class="bottom-text col-xl-6 col-sm-6">
+                <h3>Lorem ipsum dolor sit amet, consectetur.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda blanditiis consectetur consequuntur doloribus, ipsum laborum necessitatibus non, quaerat qui quo quod, repudiandae voluptate. A assumenda expedita natus sit tempore.</p>
+<!--                <a href="#" class="top-btn bottom-btn" >LEARN MORE</a>-->
+                <button href="#" class="top-btn bottom-btn">LEARN MORE</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="bottom-pic col-xl-6">
+
+            </div>
+            <div class="col-xl-6">
+
+            </div>
+        </div>
+
+
+        <div class="bottom-color col-xl-12">
+
+        </div>
+
+
+
+    </div>
+
 </div>
 
 
 
-<!-- Optional JavaScript -->
+
+<!-- wow.js with animate.css -->
+<script src="../node_modules/wowjs/dist/wow.min.js"></script>
+<script>
+    var wow=new WOW();
+    wow.init();
+</script>
+
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="../bootstrap/js/popper.min.js"></script>
