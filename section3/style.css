@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+body{
+
+}
+
+.play-btn {
+        font-family: fontAwesome;
+    position: absolute;
+    left: auto;
+    right: 0px;
+    top: 47%;
+    /* transform: skew(14deg); */
+    font-size: 15px;
+    color: white;
+    background-color: #4bdc92;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: -23px;
+	-webkit-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.54);
+	-moz-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+	box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+	
+}
+
+.body_title{
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 76px;
+    opacity: 0.2;
+    color: gray;
+
+}
+.info p {
+    color: gray;
+    font-size: 15px;
+    line-height: 27px;
+}
+
+
+.info ul li {
+    list-style: none;
+    line-height: 26px;
+    font-weight: 600;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.info ul li:before {content: "\f00c";font-family: fontAwesome;margin-right: 9px;color: #4bdc92;/* font-size: 16px; */}
+
+.info h3 {
+    font-size: 22px;
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.play-btn i {
+    transform: skew(14deg);
+    margin-top: 28%;
+    display: flex;
+    /* margin: auto; */
+    /* padding-left: 50%; */
+    /* padding-top: 50%; */
+    /* top: 50%; */
+    justify-content: center;
+    align-items: center;
+}
+.left{
+border-radius: 15px;
+height:396px;
+background-image:url("background.jpg");
+background-repeat:no-repeat;
+background-position:center;
+background-size:cover;
+-webkit-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.54);
+-moz-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+}
+
+.info p{
+}
+
+.right{
+display: flex;
+align-items: center;
+padding: 100px !important;
+font-family: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+  .play-btn {
+        font-family: fontAwesome;
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    /* transform: skew(14deg); */
+    font-size: 15px;
+    color: white;
+    background-color: #4bdc92;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: -23px;
+	-webkit-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.54);
+	-moz-box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+	box-shadow: 16px -10px 33px -21px rgba(0,0,0,0.45);
+	
+}
+
+.left{
+height:396px;
+background-image:url("background.jpg");
+background-repeat:no-repeat;
+background-position:center;
+background-size:cover;
+}
+
+}
+
+
