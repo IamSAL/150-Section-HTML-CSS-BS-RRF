@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!--    <link rel="stylesheet" href="../bootstrap/UniversalStyle.css">-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Magnific-Popup/dist/magnific-popup.css">
     <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
     <!-- Bootstrap CSS -->
@@ -16,11 +17,12 @@
 <body>
 <h3 class="body_title">Section#3</h3>
 <div class="row">
-<div class="col-sm-6 left">
+    
+<div class="mfp-iframe video-play-btn col-sm-6 left" href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">
 
+    <a class="mfp-iframe video-play-btn" href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"><div class="play-btn" id="play-btn">
+        <i class="fas fa-play"></i></div></a>
 
-<div class="play-btn">
-<i class="fas fa-play"></i></div>
 
 
 
@@ -42,11 +44,6 @@ be connected in</p>
 </div>
 </div>
 
-<script>
-
-
-
-</script>
 
 <!-- wow.js with animate.css -->
 <script src="../node_modules/wowjs/dist/wow.min.js"></script>
@@ -60,6 +57,22 @@ be connected in</p>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="../bootstrap/js/popper.min.js"></script>
 <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--maginific popup-->
+<script src="Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+
+<script>
+    
+     $('.video-play-btn').magnificPopup({
+        
+        type: 'video',
+        
+    
+    
+    
+});
+
+
+</script>
 
 </body>
 </html>
