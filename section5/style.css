@@ -1,0 +1,105 @@
+
+
+*{
+    box-sizing: border-box;
+}
+
+.body_title{
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 76px;
+    opacity: 0.2;
+    color: gray;
+
+}
+
+.styled-faq{
+    margin-top: 30px;
+}
+
+.section-bg-1{
+    position: relative;
+    min-height: 680px;
+}
+
+.section-bg-1::after{
+    background-image: url("assets/background.jpg");
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 47%;
+    background-position: center;
+    content: "";
+    background-repeat: no-repeat;
+}
+.section-padding {
+    padding: 27px 0;
+}
+
+.container h3 {
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.container h3 span {
+    color: #5edae8;
+}
+
+body {
+    color: #8e8d8d !important;
+}
+
+.styled-faq .card .card-header {background: none;
+    border-bottom: 0;}
+
+.styled-faq .card{
+    margin: 20px 0px 20px 0px;
+    border-radius: 0px !important;
+    border: 1px solid #e4e1e1 !important;
+    border-bottom: 1px solid #e4e1e1 !important;
+}
+
+.styled-faq .card .card-header {
+
+    padding: 3px;
+
+}
+
+.styled-faq .card .card-header h2 {
+    top: 5px;
+}
+
+.styled-faq .card .card-header h2 button {padding-top: 0px;}
+
+.styled-faq .card .card-header h2 i {
+    display: none;
+    margin-right: 5px;
+    margin-top: 5px;
+    float: right;
+    font-size: 26px;
+    color: #5EDAE8;
+    text-align: center;
+    /* vertical-align: middle; */
+}
+
+.styled-faq .card .card-header[aria-expanded=true] h2 i.fa.fa-angle-down{
+    display: block;
+}
+.styled-faq .card .card-header[aria-expanded=false]  h2 i.fa.fa-angle-up{
+    display: block;
+}
+
+.styled-faq .card .card-header .btn {
+    padding-top: 0px;
+    color: #5E5E5E;
+    font-weight: 700;
+}
+
+.styled-faq .card .card-header .btn-link {
+    text-decoration: none;
+}
