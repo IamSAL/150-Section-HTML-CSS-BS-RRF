@@ -1,0 +1,146 @@
+
+
+*{
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.body_title{
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 76px;
+    opacity: 0.2;
+    color: gray;
+
+}
+.staff-image img {
+    width: 185px !important;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+
+.staff-image {
+}
+
+
+.staff-information {
+    margin: 35px 0px;
+    text-align: left;
+}
+
+.staff-name {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.staff-designation {
+    font-size: 14px;
+    color: gray;
+}
+
+.person-details {
+    font-size: 14px;
+    color: darkslategray;
+    text-align: left;
+}
+
+section.section-padding {
+    padding: 30px 0;
+}
+
+.single-person {
+    padding: 28px;
+    text-align: center;
+    min-height: 550px;
+    margin: 15px 0px;
+}
+
+@media (min-width: 768px){
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 100% !important;
+    }
+}
+
+.owl-carousel.off {
+    display: block;
+}
+
+.section-title {
+    float: left;
+}
+
+.section-title h3 {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: darkslategray;
+    margin-bottom: 25px;
+}
+
+.section-title p {
+    font-size: 15px;
+    color: gray;
+    margin: 20px 0px;
+}
+
+.section-title h3::before {
+    content: "";
+    width: 50px;
+    background: cyan;
+    height: 5px;
+    /* bottom: 58px; */
+    top: 43px;
+    position: absolute;
+    /* margin-left: 25px; */
+}
+
+.own-navigator i {
+    font-size: 17px;
+    padding: 12px 17px 12px 17px;
+    background-color: cyan;
+    border-radius: 5px;
+    margin-right: -8px;
+    border-top-left-radius: 0;
+    color: white;
+    border-bottom-left-radius: 0;
+}
+
+i.fas.fa-long-arrow-alt-left {
+    background-color: lightgray;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    color: darkslategrey;
+}
+
+.own-navigator {
+    float: right;
+}
+.row.owl-carousel.off{
+    display: inline-flex !important;
+}
+
+.owl-carousel .owl-nav {
+    position: absolute !important;
+    right: 0 !important;
+    top: -41px !important;
+}
+.owl-carousel .owl-nav button {
+    transition: 0.2s;
+
+
+}
+
+.owl-carousel .owl-nav button:focus {
+    border: none !important;
+    outline:none !important;
+    transform: scale(0.85);
+
+}
+
