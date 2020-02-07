@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table{
+            border: 1px solid black;
+            width: 500px;
+            height: 300px;
+        }
+        td{
+
+            background: rgb(131,58,180);
+            background: linear-gradient(35deg, rgba(131,58,180,1) 0%, rgba(69,190,44,1) 17%, rgba(253,29,29,1) 35%, rgba(39,253,247,1) 62%, rgba(208,144,171,1) 84%, rgba(252,176,69,1) 100%);
+            border: 1px solid black;
+            font-weight: bolder;
+        }
+        th{
+            background-color: #478d42;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+        <th>Header</th>
+    </tr>
+    <tr>
+        <td rowspan="4"> You Can Span down.</td>
+        <td colspan="3">You can span across</td>
+
+    </tr>
+    <tr>
+        <td colspan="2"> its like a puzzle</td>
+        <td rowspan="3"> Over here</td>
+
+    </tr>
+    <tr>
+        <td rowspan="2">This <br> way</td>
+        <td>that way</td>
+
+    </tr>
+    <tr>
+        <td>Where am I?</td>
+    </tr>
+</table>
+
+</body>
+</html>
