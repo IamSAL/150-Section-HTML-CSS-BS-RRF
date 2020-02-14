@@ -1,0 +1,83 @@
+
+
+
+.image-upload{
+    text-align: center;
+    border: 2px solid;
+    height: 100px;
+    width: 100px;
+    background-image: url(https://www.netclipart.com/pp/m/432-4325019_illustration-clip-art-logo-symbol-add-person-icon.png);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.img-container{
+    opacity: 1;
+    text-align: center;
+}
+input[type="file" i]{
+    -webkit-appearance:checkbox !important;
+}
+
+form {
+    /* width: 200px; */
+    text-align: center;
+}
+
+input {
+    width: 75%;
+    margin: 16px;
+    padding: 10px;
+    border: 1px dashed;
+    border-radius: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+input[type=radio] {
+    width: unset;
+}
+
+.duration{
+    width: 49%;
+    display: inline-block;
+}
+.duration input{
+    width: 70%;
+}
+.title{
+    position: relative;
+    top: -68px;
+    font-size: 28px;
+    background: #f7f7f7;
+    margin-bottom: -50px;
+}
+
+.bsc{
+    border: 1px dashed;
+    border-radius: 20px;
+    padding: 20px 17px;
+    margin-top: 50px;
+
+}
+
+.container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: 15%;
+    background-color: #f7f7f7;
+    padding: 10%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+input[type=checkbox] {
+    width: unset;
+    text-align: left;
+    margin: 0px;
+    margin-left: 17px;
+
+}

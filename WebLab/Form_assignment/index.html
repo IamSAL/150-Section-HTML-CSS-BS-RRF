@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .image-upload {
+            text-align: center;
+            border: 2px solid;
+            height: 100px;
+            width: 100px;
+            background-image: url(https://www.netclipart.com/pp/m/432-4325019_illustration-clip-art-logo-symbol-add-person-icon.png);
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .img-container {
+            opacity: 1;
+            text-align: center;
+        }
+
+        input[type="file" i] {
+            -webkit-appearance: checkbox !important;
+        }
+
+        form {
+            /* width: 200px; */
+            text-align: center;
+        }
+
+        input {
+            width: 75%;
+            margin: 16px;
+            padding: 10px;
+            border: 1px dashed;
+            border-radius: 10px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input[type=radio] {
+            width: unset;
+        }
+
+        .duration {
+            width: 49%;
+            display: inline-block;
+        }
+
+        .duration input {
+            width: 70%;
+        }
+
+        .title {
+            position: relative;
+            top: -68px;
+            font-size: 28px;
+            background: #f7f7f7;
+            margin-bottom: -50px;
+        }
+
+        .bsc {
+            border: 1px dashed;
+            border-radius: 20px;
+            padding: 20px 17px;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 50%;
+            margin-left: auto;
+            margin-right: 15%;
+            background-color: #f7f7f7;
+            padding: 10%;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        input[type=checkbox] {
+            width: unset;
+            text-align: left;
+            margin: 0px;
+            margin-left: 17px;
+        }
+    </style>
+    <title>Form</title>
+</head>
+
+<body>
+<div class="container myform">
+    <form action="https://admin.diu.edu.bd">
+        <div class="img-container">
+            <input name="image" id="image" class="image-upload" onclick="(this.type='file')" onblur="(this.type='')">
+        </div>
+        <div class="form-group bsc">
+
+            <p class="title">Personal Details</p>
+
+            <div class="">
+                <label for="name" id="name">Name*:</label>
+                <input class="form-control" type="text" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone*:</label>
+                <input type="number" name="phone" id="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email*:</label>
+                <input type="email" name="email" id="email" required>
+
+            </div>
+
+            <div class="form-group">
+                <label for="adress">Adress:</label>
+                <input type="text" name="adress" id="adress">
+            </div>
+
+            <div class="form-group">
+                <label for="BirthDate">Birth Date:</label>
+                <input name="BirthDate" id="BirthDate" placeholder="Date*" onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+        </div>
+
+        <div class="form-group bsc">
+            <p class="title">BSC Duration:</p>
+
+            <div class="form-group duration">
+                <label for="bsc_start">Start:</label>
+                <input id="bsc_start" min="2002-01-20" placeholder="Date*" onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+
+            <div class="form-group duration">
+                <label for="bsc_end">End:</label>
+                <input id="bsc_end" max="2020-01-01" placeholder="Date*" onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+
+        </div>
+
+        <div class="form-group bsc">
+            <p class="title">Gender:</p>
+            <input type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+
+            <input type="radio" name="gender" id="others">
+            <label for="others">Others</label>
+        </div>
+
+        <div class="form-group bsc">
+            <p class="title">Skills:</p>
+            <input type="checkbox" name="skills" id="android">
+            <label for="android">Android Development</label>
+
+            <input type="checkbox" name="skills" id="web">
+            <label for="web">Web Development</label>
+
+            <input type="checkbox" name="skills" id="graphic">
+            <label for="graphic">Graphic Design</label>
+
+            <input type="checkbox" name="skills" id="ml">
+            <label for="graphic">Machine Learning</label>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
