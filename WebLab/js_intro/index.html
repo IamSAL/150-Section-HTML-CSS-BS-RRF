@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devtool sandbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Devtools playground</h1>
+    <button id='btn'>Get User</button>
+    
+
+
+    <script>
+
+
+document.getElementById('btn').addEventListener('click',getUsers);
+function getUsers(){
+    console.log("func called");
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+
+    
+}
+       
+
+        // console.log("hellow"+myvar)
+        // console.error("this is an error")
+        // console.warn("this is a warning")
+        // // console.dir(document.getElementsByTagName('h1'))
+        // console.log(document.URL)
+        
+        // console.table([{name:'salman',age:23},{name:"shakil"}])
+        // console.clear()
+        // console.group('say hellow');
+        // console.log('hello salman');
+        // console.log('hellow chris');
+        // console.groupEnd('say hellow')
+
+        // console.log(2+2)
+
+        // console.clear()
+
+        console.time("for loop")
+            for(var i =0;i<=20;i++){
+                console.log(i)
+            }
+            console.timeEnd("for loop")
+
+
+        function greaterThan(x,y){
+            console.assert(x>y,{"message":"x is not greater than y","x": x,"y":y})
+        }
+
+        greaterThan(10,8);
+
+        console.log(Date())
+       
+
+       
+
+        document.cookie="username=John Doe";
+        var cook=document.cookie.fetch
+        console.log(cook);
+
+        localStorage.setItem('password','myass')
+        var name=localStorage.getItem('name')
+        console.log("welcome back", name);
+        
+        localStorage.clear('passowrd')
+        console.log("your pass is", localStorage.getItem('password'));
+
+        
+    </script>
+
+</body>
+</html>
