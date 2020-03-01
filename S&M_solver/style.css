@@ -11,9 +11,13 @@
 
 /*top-header*/
 
-.header{
+.header {
     position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
 }
+
 .menu-items ul {
     float: right;
     display: flex;
