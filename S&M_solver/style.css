@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400i,500,700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat,sans-serif;
+    color: #707070;
+}
+
+
+/*top-header*/
+.menu-items ul {
+    float: right;
+    display: flex;
+    list-style-type: none;
+}
+a,a:hover{
+    text-decoration: none;
+}
+.menu-items ul li {
+    display: inline;
+    margin: 0px 20px 0px 20px;
+}
+
+.col-md-9.menu-items {
+    display: block;
+    margin-top: 15px;
+}
+
+nav {
+    font-family: Montserrat, serif;
+    background-color: #FCFCFC;
+    border-bottom: 1px solid #e6e5e5;
+    padding: 10px 5% 10px 5%;
+}
+
+.brand h2:after {
+    color: #707070;
+    font-family: Montserrat,sans-serif;
+    padding: 3px 4px 3px 2px;
+    content: "SOLVER";
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    float: left;
+}
+
+
+.brand h2 {
+    margin: 0px 0px 13px 0px;
+    font-family: Montserrat serif;
+    color: #707070;
+    font-weight: 600;
+}
+
+
+.menu-items ul li {
+    cursor: pointer;
+    color: #707070;
+    font-family: Montserrat, monospace;
+    font-weight: 200;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition:0.1s
+}
+
+.menu-items ul li .fa {color: #707070;padding: 1px 5px 0px 5px;}
+
+.menu-items ul li .fa-user-circle-o {
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.menu-items ul li:hover {
+
+    color: black;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*main-content*/
+
+.home-title h2 span {
+    display: block;
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+.home-title h2 {
+    font-weight: 400 !important;
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
+.home-title h2:after {
+    background-color: #D1D1D1;
+    content: " ";
+    width: 22%;
+    height: 2px;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.home-title-container {
+    margin-top: 3%;
+}
+
+
+
+.single-items {
+    margin: 2% 10% 2% 10%;
+}
+.single-item-title:after{
+    background-color: #D1D1D1;
+    content: " ";
+    width: 80%;
+    height: 2px;
+    position: absolute;
+
+}
+
+.single-item-container {
+    padding: 10% 0% 10%;
+}
+
+.single-item-picture img {
+    height: 100%;
+    width: 100%;
+}
+
+.single-item {
+    border: 1px solid #707070;
+    height: 380px;
+    max-height: 400px;
+}
+
+.single-item-picture {border-bottom: 1px solid #707070;    height: 40%;}
+
+
+.single-item-title {
+    padding: 5%;
+}
+
+.single-item-description p {
+    letter-spacing: 1px;
+    line-height: 22px;
+    font-size: 12px;
+    text-align: left;
+    padding: 2px 5% 2px 5%;
+
+}
+
+.single-item-title:hover {
+    cursor: pointer;
+    background-color: #707070;
+}
+
+.single-item-title:hover h3 {
+    transition: 0.2s;
+    color: white;
+    transform: scale(0.85);
+}
+
+.single-item-title:hover:after {
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsiveness*/
+
+@media only screen and (max-width: 600px){
+    .brand{
+        text-align: center;
+        width: 100%;
+    }
+    .menu-items{
+        margin-top: unset !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .brand h2:after{
+        display: unset;
+        transform: translate(-93%, 0px);
+
+    ;
+    }
+    nav{
+
+
+    }
+    .menu-items ul{
+
+        float: unset;
+        display: unset;
+    }
+    .menu-items ul li{
+
+        font-size: 12px;
+        margin: 0px 5px 0px 5px;
+    }
+
+    .menu-items ul li .fa{
+        padding: 0px 2px 0px 2px;
+    }
+}
+
+
