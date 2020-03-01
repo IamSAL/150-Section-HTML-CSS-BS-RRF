@@ -10,6 +10,10 @@
 
 
 /*top-header*/
+
+.header{
+    position: -webkit-sticky;
+}
 .menu-items ul {
     float: right;
     display: flex;
