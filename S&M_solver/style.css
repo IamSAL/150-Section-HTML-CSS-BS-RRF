@@ -158,7 +158,12 @@ nav {
     max-height: 400px;
 }
 
-.single-item-picture {border-bottom: 1px solid #707070;    height: 40%;}
+.single-item-picture {
+    background-image: url("media/background_wood.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #707070;    height: 40%;}
 
 
 .single-item-title {
@@ -198,7 +203,20 @@ nav {
 
 
 
-
+/*footer*/
+.footer{
+    text-align: center;
+    background-color: #fcfcfc;
+    border-top: 1px solid #e6e5e5;
+}
+.footer p {
+    margin: 10px 0 10px 0%;
+}
+.footer p a {
+    font-weight: lighter;
+    text-decoration: none;
+    color: #707070;
+}
 
 /*responsiveness*/
 
