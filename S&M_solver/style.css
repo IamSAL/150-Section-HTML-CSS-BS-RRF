@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400i,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,300,400,500,500i,600,700,800,800i,900&display=swap');
 
 *{
     box-sizing: border-box;
@@ -8,7 +8,54 @@
     color: #707070;
 }
 
+/* browser default styling */
+html {
+    scroll-behavior: smooth;
+}
 
+/* customized scrollbar for chrome desktop version only */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(248, 248, 248, 0.88);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(11, 95, 221, 0.44);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #0b5fdd 1%, #3690f0 60%, #54a3ee 79%, rgba(76, 163, 239, 0.59) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #0b5fdd 1%, #3690f0 60%, #54a3ee 79%, #4ca3ef 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #0b5fdd 1%, #3690f0 60%, #54a3ee 79%, #4ca3ef 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0b5fdd', endColorstr='#4ca3ef', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+}
+
+/* body styling */
+body {
+    overflow-x: hidden;
+}
+
+img {
+    pointer-events: none;
+}
+
+a, a:hover, a:visited, a:focus {
+    text-decoration: none !important;
+}
 /*top-header*/
 
 .header {
@@ -195,14 +242,6 @@ nav {
 }
 
 
-
-
-
-
-
-
-
-
 /*footer*/
 .footer{
     text-align: center;
@@ -258,3 +297,97 @@ nav {
 }
 
 
+
+/*for single channel queue solver page*/
+.hero-container{
+    padding: 5% 20% 30% 20%;
+    position: relative;
+    overflow: hidden;
+}
+.hero-container:before{
+    background-image: url('media/SCQ_illustration_hero_section.png');
+    background-size: contain;
+    content: "";
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 100%;
+    height: 85%;
+    z-index: -2;
+    opacity: 0.4;
+}
+.hero-title h3 span {
+    display: block;
+    font-weight: 100;
+}
+
+.hero-title h3 {
+    font-weight: bold;
+    text-align: center;
+    line-height: 49px;
+    font-size: 40px;
+}
+
+.hero-title:after {
+    margin:5px 0px 5px 0px;
+    background-color: #D1D1D1;
+    content: " ";
+    width: 300px;
+    display: unset;
+    transform: translate(65%, 1px);
+    height: 3px;
+    position: absolute;
+}
+
+.hero-description-container {padding: 5%;}
+
+.hero-description p {text-align: center;font-weight: 400;font-size: 18px;}
+
+.hero-buttons {
+    margin-left: 18%;
+    margin-right: auto;
+}
+.hero-button a {
+    color: white;
+}
+.hero-button {
+    text-align: center;
+    margin: 5px 10px 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 25px 12px 25px;
+    color: white;
+    background: #707070;
+
+}
+
+.hero-button-secondary {background: rgba(255, 255, 255, 0.5);border: 2px solid #707070;}
+
+.hero-button-secondary a {
+    color: #707070;
+}
+
+
+
+
+
+
+/*responsiveness*/
+
+@media only screen and (max-width: 600px){
+    .hero-title:after{
+        width: 60%;
+        display: unset;
+        transform: translate(0%, 0px);
+    }
+
+    .hero-description p{
+        font-size: unset;
+    }
+    .hero-container:before{
+        top: unset;
+        bottom: -20%;
+    }
+}
