@@ -305,7 +305,7 @@ nav {
     overflow: hidden;
 }
 .hero-container:before{
-    background-image: url('media/SCQ_illustration_hero_section.png');
+    background-image: url('media/SCQ_hero.png');
     background-size: contain;
     content: "";
     background-repeat: no-repeat;
@@ -690,15 +690,18 @@ input::placeholder {
     opacity: 0.2;
     height: 300px;
     width: 100%;
-    background-image: url("media/SCQ_illustration_footer_section.png");
+    background-image: url("media/SCQ_footer.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+/*test comment*/
 
 
-
+.class{
+    sdsad
+}
 
 
 
