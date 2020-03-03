@@ -6,5 +6,12 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="scrollreveal" level="application" />
     <orderEntry type="library" name="owl.carousel" level="application" />
+    <orderEntry type="library" name="dataTables.bootstrap" level="application" />
+    <orderEntry type="library" name="fixedHeader.bootstrap" level="application" />
+    <orderEntry type="library" name="responsive.bootstrap" level="application" />
+    <orderEntry type="library" name="dataTables.responsive" level="application" />
+    <orderEntry type="library" name="dataTables.fixedHeader" level="application" />
+    <orderEntry type="library" name="jquery.dataTables" level="application" />
+    <orderEntry type="library" name="dataTables.bootstrap4" level="application" />
   </component>
 </module>
