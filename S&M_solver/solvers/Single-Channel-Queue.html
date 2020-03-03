@@ -54,7 +54,7 @@ content goes here:
                 <div class="hero-buttons-container">
                     <div class="row hero-buttons">
                         <div class="hero-button col-md-4">
-                            <a href="#SQC_solver" class="">Go to Solver</a>
+                            <a href="#SCQ_solver" class="">Go to Solver</a>
                         </div>
                         <div class="hero-button col-md-4 hero-button-secondary">
                             <a href="#" class="">Resources</a>
@@ -183,12 +183,14 @@ content goes here:
                                 <p>
                                     A table showing the probability of the average service time a customer requires, upto a certain limit(Max Service Time).
                                 </p>
+                                <span id="SCQ_solver"></span>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-            <div class="SQC-solver-container" id="SQC_solver">
+            <div class="SQC-solver-container"  >
                 <hr class="SQC_hr offset-3">
                 <div class="SQC-solver-title" >
                     <h3>sqc<span>Solver</span></h3>
@@ -524,7 +526,7 @@ content goes here:
                                 </div>
                             </div>
                             <div class="SQC-Simulation-output-container">
-                                <table class="SQC-Simulation-output-table table table-striped table-bordered table-hover ST-info-Table nowrap" id="SQC-Simulation-output-table">
+                                <table class="SQC-Simulation-output-table table table-striped table-bordered table-hover Simulation-info-Table nowrap" id="SQC-Simulation-output-table">
                                     <thead>
                                     <tr>
                                         <th>Customer</th>
@@ -687,42 +689,115 @@ content goes here:
             <div class="output-cards-container">
                 <div class="output-cards">
                     <div class="row">
-                        <div class="single-output-card-container col-md-3 offset-1 ml-auto ">
+                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
                                 <div class="single-output-card">
                                     <div class="row">
-                                        <div class="col-md-8 output-card-title">
-                                            <h4><span>Average</span>Waiting Time</h4>
+                                        <div class="col-md-7 output-card-title">
+                                            <h4><span>Average</span>Waiting <br> Time</h4>
                                         </div>
-                                        <div class="col-md-4 card-value">
+                                        <div class="col-md-3 card-value">
                                             <h3><span>2.8</span></h3>
                                         </div>
                                     </div>
                                 </div>
                         </div>
-                        <div class="single-output-card-container col-md-3 offset-1 ">
+                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
                             <div class="single-output-card">
                                 <div class="row">
                                     <div class="col-md-8 output-card-title">
-                                        <h4><span>Average</span>Waiting Time</h4>
+                                        <h4><span>Average</span>Service <br> Time</h4>
                                     </div>
                                     <div class="col-md-4 card-value">
-                                        <h3><span>2.8</span></h3>
+                                        <h3><span>3.4</span></h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mr-auto">
+                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
                             <div class="single-output-card">
                                 <div class="row">
                                     <div class="col-md-8 output-card-title">
-                                        <h4><span>Average</span>Waiting Time</h4>
+                                        <h4><span>Average</span>Time Between Arrivals</h4>
                                     </div>
                                     <div class="col-md-4 card-value">
-                                        <h3><span>2.8</span></h3>
+                                        <h3><span>4.3</span></h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-7 output-card-title">
+                                        <h4><span>Average</span>Time user Spends in System</h4>
+                                    </div>
+                                    <div class="col-md-3 card-value">
+                                        <h3><span>6.2</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-8 output-card-title">
+                                        <h4><span>probability of</span>Waiting <br> in Queue</h4>
+                                    </div>
+                                    <div class="col-md-4 card-value">
+                                        <h3><span>0.65</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-8 output-card-title">
+                                        <h4><span>Average</span>Waiting Time of Those Who Wait</h4>
+                                    </div>
+                                    <div class="col-md-4 card-value">
+                                        <h3><span>4.3</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-7 output-card-title">
+                                        <h4><span>probability of </span>Server <br>Being Busy</h4>
+                                    </div>
+                                    <div class="col-md-3 card-value">
+                                        <h3><span>0.79</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-8 output-card-title">
+                                        <h4><span>probability of</span>Serve <br>Being Idle</h4>
+                                    </div>
+                                    <div class="col-md-4 card-value">
+                                        <h3><span>0.21</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
+                            <div class="single-output-card">
+                                <div class="row">
+                                    <div class="col-md-7 output-card-title">
+                                        <h4><span>The Time</span>I Took to Solve This Math!</h4>
+                                    </div>
+                                    <div class="col-md-5 card-value">
+                                        <h3><span>2.05</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
 
