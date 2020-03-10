@@ -1,25 +1,24 @@
 //in-line comment
 
 
-
 console.log("hello Js");
 
-document.title="Js tutorial by FCC";
+document.title = "Js tutorial by FCC";
 
 /* this is a mulit
 line comment
  */
-var myName="Sheikh Salman";
-myName="Sabbir Miah";
-ourname="freecodecamp";
+var myName = "Sheikh Salman";
+myName = "Sabbir Miah";
+ourname = "freecodecamp";
 
-concat=myName+ourname
+concat = myName + ourname
 
 document.write(ourname)
-const pi=3.14;
-var a=5;
-a*=6; //a=a*6;
-console.log(typeof myName,pi);
+const pi = 3.14;
+var a = 5;
+a *= 6; //a=a*6;
+console.log(typeof myName, pi);
 
 
 // /* worblanks game
@@ -41,48 +40,48 @@ console.log(typeof myName,pi);
 //  */
 
 
-var myArr=["Salman",9398]
+var myArr = ["Salman", 9398]
 
-var mulArr=[["salman",9398],["any",1069]]
+var mulArr = [["salman", 9398], ["any", 1069]]
 
 
 //shopping list array
 
-var myList=[['cereal',0],['milk',2],['banana',3],['juice',2],['eggs',12]];
+var myList = [['cereal', 0], ['milk', 2], ['banana', 3], ['juice', 2], ['eggs', 12]];
 
 //stand in line (queue)
 
-function nextInLine(arr,item) {
+function nextInLine(arr, item) {
 
     arr.push(item);
-    var next=arr.shift();
+    var next = arr.shift();
     return next;
 }
-var testArr=[1,2,3,4,5];
+
+var testArr = [1, 2, 3, 4, 5];
 
 
 //golfName game
 
-var golfNames=["Hole-in-One!","Eagle","Birdie","Par","Bogey","Double Bogey","Go Home!"];
+var golfNames = ["Hole-in-One!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
 
 function golfScore(par, strokes) {
 
-    if(strokes==1){
+    if (strokes == 1) {
         return golfNames[0]
-    }else if (strokes<=par-2){
+    } else if (strokes <= par - 2) {
         return golfNames[1]
-    }else if(strokes==par-1){
+    } else if (strokes == par - 1) {
         return golfNames[2]
-    }else if(strokes==par){
+    } else if (strokes == par) {
         return golfNames[3]
-    }else if(strokes==par+1){
+    } else if (strokes == par + 1) {
         return golfNames[4]
-    }else  if(strokes==par+2){
+    } else if (strokes == par + 2) {
         return golfNames[5]
-    }
-    else if(strokes>=par+3){
+    } else if (strokes >= par + 3) {
         return golfNames[6]
-    }else{
+    } else {
         return "error"
     }
 
@@ -90,7 +89,7 @@ function golfScore(par, strokes) {
 
 //golfName game
 
-val=7
+val = 7
 switch (val) {
     case "bob":
         console.log("Marley")
@@ -112,96 +111,95 @@ switch (val) {
         break
 
 
-
 }
 
 
-
 //JS object
-var Dog={
-   "maveric":{
-    "name":"Maverick",
-    "legs":4,
-    "friends":["everything"]
+var Dog = {
+    "maveric": {
+        "name": "Maverick",
+        "legs": 4,
+        "friends": ["everything"]
     },
-    "Silver":{
-       "name":"silver",
-        "age":4,
-        "legs":4,
-        "friends":"none"
+    "Silver": {
+        "name": "silver",
+        "age": 4,
+        "legs": 4,
+        "friends": "none"
     },
-    "shiba":{
-       "name":"inu",
-        "age":2,
-        "tails":1
+    "shiba": {
+        "name": "inu",
+        "age": 2,
+        "tails": 1
     }
 
 }
 
 //////////challenge:update
 
-var collections={
-    "2548":{
-        "album":"Slippery When Wet",
-        "artist":"Bon Jovi",
-        "tracks":[
+var collections = {
+    "2548": {
+        "album": "Slippery When Wet",
+        "artist": "Bon Jovi",
+        "tracks": [
             "Let it Rock",
             "You give Love a Bad name"
 
         ]
     },
-    "2468":{
-        "album":"1999",
-        "artist":"Prince",
-        "tracks":[
+    "2468": {
+        "album": "1999",
+        "artist": "Prince",
+        "tracks": [
             "1999",
             "Little Red Corvette"
         ]
     },
-    "1245":{
-        "artist":"Rober Palmer",
-        "tracks":[]
+    "1245": {
+        "artist": "Rober Palmer",
+        "tracks": []
     },
 
-    "5439":{
-        "album":"ABBA Gold"
+    "5439": {
+        "album": "ABBA Gold"
     }
 }
 //keeping a copy for later tests
-var collectionCopy=JSON.parse(JSON.stringify(collections));
+var collectionCopy = JSON.parse(JSON.stringify(collections));
 
 
 //update function
-function updateRecords(id, prop, value) {
-    if (collections.hasOwnProperty(id)){
-        update(id,prop,value)
-    }else{
-        collections.id=id
-        update(id,prop,value)
-    }
 
+
+function updateRecords(id, prop, value) {
+    if (collections.hasOwnProperty(id)) {
+        update(id, prop, value)
+    } else {
+        collections.id = id
+        update(id, prop, value)
+    }
 
     function update(id, prop, value) {
-        if(value=== ""){
+        if (value === "") {
             delete collections[id][prop];
-        }else if(prop==="tracks"){
-            collections[id][prop]=collections[id][prop]||[];
+        } else if (prop === "tracks") {
+            collections[id][prop] = collections[id][prop] || [];
             collections[id][prop].push(value)
-        }else{
-            collections[id][prop]=value;
+        } else {
+            collections[id][prop] = value;
         }
     }
+
     return collections;
 }
+
 //update challenge-end
 
-function RandomValueByRange(Min,Max){
-    randomValue=Math.floor(Math.random()*(Max-Min+1))+Min;
+function RandomValueByRange(Min, Max) {
+    randomValue = Math.floor(Math.random() * (Max - Min + 1)) + Min;
     return randomValue
 }
 
-RandomValueByRange(5,500) //use if-else to make in certain digits number if not matched
-
-
+RandomValueByRange(5, 500) //use if-else to make in certain digits number if not matched
 
 

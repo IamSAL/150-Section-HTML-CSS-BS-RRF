@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../imports/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://nightly.datatables.net/css/dataTables.bootstrap4.min.css">
@@ -17,812 +18,936 @@
 <!--===================
 Header goes here:
 =====================-->
-    <div class="header">
-        <nav>
-            <div class="row">
-                <div class="col-md-3 brand">
-                    <a href="#"><h2>S&M</h2></a>
-                </div>
-                <div class="col-md-9 menu-items">
-                    <ul>
-
-                        <li>Resources</li>
-                        <li>About</li>
-                        <li><i class="fa fa-heart-o" aria-hidden="true"></i>Contribute</li>
-                        <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
-                    </ul>
-                </div>
+<div class="header">
+    <nav>
+        <div class="row">
+            <div class="col-md-3 brand">
+                <a href="#"><h2>S&M</h2></a>
             </div>
-        </nav>
-    </div>
+            <div class="col-md-9 menu-items">
+                <ul>
+
+                    <li>Resources</li>
+                    <li>About</li>
+                    <li><i class="fa fa-heart-o" aria-hidden="true"></i>Contribute</li>
+                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <!--===================
 content goes here:
 =====================-->
-        <div class="container">
-            <div class="hero-container">
-                <div class="hero-title-container">
-                    <div class="hero-title">
-                        <h3>Single Channel <span>Queueing</span></h3>
-                    </div>
-                </div>
-                <div class="hero-description-container">
-                    <div class="hero-description">
-                        <p>Single point of entry to the system,having one central process or server, thus efficiency of this type of system largely depends on the power of the central process.</p>
-                    </div>
-                </div>
-                <div class="hero-buttons-container">
-                    <div class="row hero-buttons">
-                        <div class="hero-button col-md-4">
-                            <a href="#SCQ_solver" class="">Go to Solver</a>
-                        </div>
-                        <div class="hero-button col-md-4 hero-button-secondary">
-                            <a href="#" class="">Resources</a>
-                        </div>
+<div class="container">
 
+    <!--Hero section-->
+    <div class="hero-container">
+        <div class="hero-title-container">
+            <div class="hero-title">
+                <h3>Single Channel <span>Queueing</span></h3>
+            </div>
+        </div>
+        <div class="hero-description-container">
+            <div class="hero-description">
+                <p>Single point of entry to the system,having one central process or server, thus efficiency of this
+                    type of system largely depends on the power of the central process.</p>
+            </div>
+        </div>
+        <div class="hero-buttons-container">
+            <div class="row hero-buttons">
+
+                <!--Hero section button:go to solver-->
+                <div class="hero-button col-md-4">
+                    <a href="#SCQ_solver" class="">Go to Solver</a>
+                </div>
+                <!--Hero section button:go to solver-->
+
+                <!--Hero section button:Go to Resources-->
+                <div class="hero-button col-md-4 hero-button-secondary">
+                    <a href="#" class="">Resources</a>
+                </div>
+                <!--Hero section button:Go to Resources-->
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--TBA section:info only-->
+    <div class="info-TBA-container">
+        <div class="info-title">
+            <h3><span>Distribution Of</span>Time Between Arrivals</h3>
+        </div>
+        <div class="info-TBA">
+            <div class="row">
+                <div class="info-TBA-left col-md-6">
+                    <!--TBA section:example table-->
+                    <table class="table table-striped table-bordered table-hover TBA-info-Table">
+                        <thead>
+                        <tr>
+                            <th>Time Between Arrival</th>
+                            <th>Probability</th>
+                            <th>Cumulative Probability</th>
+                            <th>Random Range</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>0.125</td>
+                            <td>0.125</td>
+                            <td>001-125</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>0.125</td>
+                            <td>0.250</td>
+                            <td>126-250</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>0.125</td>
+                            <td>0.375</td>
+                            <td>251-375</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>0.125</td>
+                            <td>0.500</td>
+                            <td>376-500</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0.125</td>
+                            <td>0.625</td>
+                            <td>501-625</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0.125</td>
+                            <td>0.750</td>
+                            <td>626-750</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0.125</td>
+                            <td>0.875</td>
+                            <td>751-875</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>0.125</td>
+                            <td>1</td>
+                            <td>876-1000</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--TBA section:example table-->
+                </div>
+                <div class="info-TBA-right col-md-6">
+                    <p>
+                        <br>
+
+                        A table showing the probability of the arrival of customers in minutes, upto a certain limit(Max
+                        TBA).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!--ST section:info only-->
+    <div class="info-ST-container">
+
+
+        <div class="info-TBA-container">
+            <div class="info-title">
+                <h3><span>Table Of</span>Service Time Distribution</h3>
+            </div>
+            <div class="info-TBA">
+                <div class="row">
+                    <!--TBA section: example ST Table-->
+                    <div class="info-TBA-left col-md-6">
+                        <table class="table table-striped table-bordered table-hover TBA-info-Table">
+                            <thead>
+                            <tr>
+                                <th>Service Time</th>
+                                <th>Probability</th>
+                                <th>Cumulative Probability</th>
+                                <th>Random Range</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>0.10</td>
+                                <td>0.10</td>
+                                <td>01-10</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0.20</td>
+                                <td>0.30</td>
+                                <td>11-30</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0.30</td>
+                                <td>0.60</td>
+                                <td>31-60</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0.25</td>
+                                <td>0.85</td>
+                                <td>61-85</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0.10</td>
+                                <td>0.95</td>
+                                <td>86-95</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>0.05</td>
+                                <td>1</td>
+                                <td>96-100</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--TBA section: example ST Table-->
+
+                    <!--TBA section: Service time info-->
+                    <div class="info-TBA-right col-md-6">
+                        <p>
+                            A table showing the probability of the average service time a customer requires, upto a
+                            certain limit(Max Service Time).
+                        </p>
+                        <span id="SCQ_solver"></span>
                     </div>
                 </div>
             </div>
-            <div class="info-TBA-container">
-                <div class="info-title">
-                    <h3><span>Distribution Of</span>Time Between Arrivals</h3>
+        </div>
+
+    </div>
+
+
+    <!--Main Solver:Intermediate input-outputs-->
+    <div class="SQC-solver-container">
+        <hr class="SQC_hr offset-3">
+        <div class="SQC-solver-title">
+            <h3>sqc<span>Solver</span></h3>
+        </div>
+        <!--step1:TBA Generation-->
+        <div class="SQC-step-container">
+            <div class="SQC-step1">
+                <div class="info-title info-title-step1">
+                    <h3><span>Step #1</span>Generating TBA table</h3>
+                    <hr class="step-title">
                 </div>
                 <div class="info-TBA">
                     <div class="row">
-                        <div class="info-TBA-left col-md-6">
-                            <table class="table table-striped table-bordered table-hover TBA-info-Table">
+                        <!--input:TBA table input-->
+                        <div class="SQC-TBA-input-container col-md-5">
+                            <div class="input-TBA">
+                                <div class="input-group">
+                                    <!--MAX TBA:-->
+                                    <label for="maxTBA" class="input-label mr-2">Max TBA:</label>
+                                    <input class="input-field ml-2 " type="number" name="maxTBA" id="maxTBA">
+                                </div>
+
+                                <!--TBA Probability type auto or manual-->
+                                <div class="input-group">
+                                    <label for="TBA-probability-Type" class="input-label mr-2">Probabilies:</label>
+                                    <div class="TBA-probability-Type ml-2 " id="TBA-probability-Type">
+
+                                        <div class="row">
+
+
+                                            <label for="manual-TBA-probability" class="radio">
+                                                <input type="radio" name="TBA-probability" id="manual-TBA-probability"
+                                                       class="hidden"/>
+                                                <span class="label"></span> Manual Input
+                                            </label>
+
+                                            <label for="auto-TBA-probability" class="radio">
+                                                <input type="radio" checked name="TBA-probability"
+                                                       id="auto-TBA-probability" class="hidden"/>
+                                                <span class="label"></span>Same Probability
+                                            </label>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--Manual TBA probability input fields(generated depending on previous choice-->
+                                <div class="input-group TBA-Generated-probabilites disabled">
+                                    <label for="TBA-probabilities" class="input-label mr-2">Enter Probabilies:</label>
+                                    <div class="TBA-probabilities ml-2 " id="TBA-probabilities">
+                                        <div class="row">
+
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="TBA:#"
+                                                   class="input-field-generated p-2 m-2 ">
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--Button:TBA table generate-->
+                                <div class="input-group">
+                                    <button class="input-btn"><i class="fa fa-cog" aria-hidden="true"></i>Generate TBA
+                                        Table <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <!--output:TBA table output-->
+                        <div class="info-TBA-left col-md-7 SQC-TBA-output-container">
+                            <table class="table table-striped table-bordered table-hover TBA-info-Table nowrap"
+                                   id="SQC-TBA-output-table">
                                 <thead>
-                                    <tr>
-                                        <th>Time Between Arrival</th>
-                                        <th>Probability</th>
-                                        <th>Cumulative Probability</th>
-                                        <th>Random Range</th>
-                                    </tr>
+                                <tr>
+                                    <th>Time <br>Between Arrival</th>
+                                    <th>Probability</th>
+                                    <th>Cumulative <br>Probability</th>
+                                    <th>Random Range</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>0.125</td>
-                                        <td>0.125</td>
-                                        <td>001-125</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>0.125</td>
-                                        <td>0.250</td>
-                                        <td>126-250</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>0.125</td>
-                                        <td>0.375</td>
-                                        <td>251-375</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>0.125</td>
-                                        <td>0.500</td>
-                                        <td>376-500</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>0.125</td>
-                                        <td>0.625</td>
-                                        <td>501-625</td>
-                                    </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
-                        <div class="info-TBA-right col-md-6">
-                            <p>
-                                A table showing the probability of the arrival of customers in minutes, upto a certain limit(Max TBA).
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="info-ST-container">
-                <div class="info-TBA-container">
-                    <div class="info-title">
-                        <h3><span>Table Of</span>Service Time Distribution</h3>
-                    </div>
-                    <div class="info-TBA">
-                        <div class="row">
-                            <div class="info-TBA-left col-md-6">
-                                <table class="table table-striped table-bordered table-hover TBA-info-Table">
-                                    <thead>
-                                    <tr>
-                                        <th>Service Time</th>
-                                        <th>Probability</th>
-                                        <th>Cumulative Probability</th>
-                                        <th>Random Range</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>0.10</td>
-                                        <td>0.10</td>
-                                        <td>01-10</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>0.20</td>
-                                        <td>0.30</td>
-                                        <td>11-30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>0.30</td>
-                                        <td>0.60</td>
-                                        <td>31-60</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>0.25</td>
-                                        <td>0.85</td>
-                                        <td>61-85</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>0.10</td>
-                                        <td>0.95</td>
-                                        <td>86-95</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>0.05</td>
-                                        <td>1</td>
-                                        <td>96-100</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="info-TBA-right col-md-6">
-                                <p>
-                                    A table showing the probability of the average service time a customer requires, upto a certain limit(Max Service Time).
-                                </p>
-                                <span id="SCQ_solver"></span>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+        <!--step2:ST Generation-->
+        <div class="SQC-step-container">
+            <div class="SQC-step2">
+                <div class="info-title info-title-step2">
+                    <h3><span>Step #2</span>Generating SERVICE TIME table</h3>
+                    <hr class="step-title">
                 </div>
-
-            </div>
-            <div class="SQC-solver-container"  >
-                <hr class="SQC_hr offset-3">
-                <div class="SQC-solver-title" >
-                    <h3>sqc<span>Solver</span></h3>
-                </div>
-                <!--step1-->
-                <div class="SQC-step-container" >
-                    <div class="SQC-step1">
-                        <div class="info-title info-title-step1">
-                            <h3><span>Step #1</span>Generating TBA table</h3>
-                            <hr class="step-title">
-                        </div>
-                        <div class="info-TBA">
-                            <div class="row">
-                                <div class="SQC-TBA-input-container col-md-5">
-                                    <div class="input-TBA">
-                                        <div class="input-group">
-                                            <label for="maxTBA" class="input-label mr-2">Max TBA:</label>
-                                            <input  class="input-field ml-2 " type="number" name="maxTBA" id="maxTBA">
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="TBA-probability-Type" class="input-label mr-2">Probabilies:</label>
-                                            <div class="TBA-probability-Type ml-2 " id="TBA-probability-Type">
-                                                <div class="row">
-
-
-                                                        <label for="manual-TBA-probability" class="radio">
-                                                            <input type="radio" name="TBA-probability" id="manual-TBA-probability" class="hidden"/>
-                                                            <span class="label"></span> Manual Input
-                                                        </label>
-
-                                                        <label for="auto-TBA-probability" class="radio">
-                                                            <input type="radio" checked name="TBA-probability" id="auto-TBA-probability" class="hidden"/>
-                                                            <span class="label"></span>Same Probability
-                                                        </label>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="input-group TBA-Generated-probabilites disabled">
-                                            <label for="TBA-probabilities" class="input-label mr-2">Enter Probabilies:</label>
-                                            <div class="TBA-probabilities ml-2 " id="TBA-probabilities">
-                                                <div class="row">
-
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="TBA:#" class="input-field-generated p-2 m-2 ">
-
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="input-group">
-                                            <button class="input-btn" ><i class="fa fa-cog" aria-hidden="true"></i>Generate TBA Table <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="info-TBA-left col-md-7 SQC-TBA-output-container">
-                                    <table class="table table-striped table-bordered table-hover TBA-info-Table nowrap" id="SQC-TBA-output-table">
-                                        <thead>
-                                        <tr>
-                                            <th>Time <br>Between Arrival</th>
-                                            <th>Probability</th>
-                                            <th>Cumulative <br>Probability</th>
-                                            <th>Random Range</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--step2-->
-                <div class="SQC-step-container" >
-                    <div class="SQC-step2">
-                        <div class="info-title info-title-step2">
-                            <h3><span>Step #2</span>Generating SERVICE TIME table</h3>
-                            <hr class="step-title">
-                        </div>
-                        <div class="info-ST">
-                            <div class="row">
-                                <div class="SQC-ST-input-container col-md-5">
-                                    <div class="input-ST">
-                                        <div class="input-group">
-                                            <label for="maxST" class="input-label mr-2">Max ST:</label>
-                                            <input  class="input-field ml-2 " type="number" name="maxST" id="maxST">
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="ST-probability-Type" class="input-label mr-2">Probabilies:</label>
-                                            <div class="ST-probability-Type ml-2 " id="ST-probability-Type">
-                                                <div class="row">
-
-
-                                                    <label for="manual-ST-probability" class="radio">
-                                                        <input type="radio" name="ST-probability" id="manual-ST-probability" class="hidden"/>
-                                                        <span class="label"></span> Manual Input
-                                                    </label>
-
-                                                    <label for="auto-ST-probability" class="radio">
-                                                        <input type="radio" checked name="ST-probability" id="auto-ST-probability" class="hidden"/>
-                                                        <span class="label"></span>Same Probability
-                                                    </label>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="input-group ST-Generated-probabilites disabled">
-                                            <label for="ST-probabilities" class="input-label mr-2">Enter Probabilies:</label>
-                                            <div class="ST-probabilities ml-2 " id="ST-probabilities">
-                                                <div class="row">
-
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="ST:#" class="input-field-generated p-2 m-2 ">
-
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="input-group">
-                                            <button class="input-btn" ><i class="fa fa-cog" aria-hidden="true"></i>Generate SERVICE TIME Table <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-                                <div class="info-ST-left col-md-7 SQC-ST-output-container">
-                                    <table class="table table-striped table-bordered table-hover ST-info-Table nowrap" id="SQC-ST-output-table">
-                                        <thead>
-                                        <tr>
-                                            <th>Service <br>Time</th>
-                                            <th>Probability</th>
-                                            <th>Cumulative <br>Probability</th>
-                                            <th>Random Range</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                            <td>NA</td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--step3-->
-                <div class="SQC-step-container" >
-                    <div class="SQC-step3">
-                        <div class="info-title info-title-step3">
-                            <h3><span>Step #3</span>Generating Simulation table</h3>
-                            <hr class="step-title">
-                        </div>
-                        <div class="info-Simulation">
-                            <div class="row">
-                                <div class="SQC-Simulation-input-container col-md-8">
-                                    <div class="input-Simulation">
-                                        <div class="input-group">
-                                            <label for="customerNum" class="input-label mr-2"><span>Number of Customers:</span></label>
-                                            <input  class="input-field ml-2 " type="number" name="customerNum" id="customerNum">
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="Simulation-random-Type" class="input-label mr-2"><span>Random Number Range:</span>:</label>
-                                            <div class="Simulation-random-Type ml-2 " id="Simulation-random-Type">
-                                                <div class="row">
-
-
-                                                    <label for="manual-Simulation-probability" class="radio">
-                                                        <input type="radio" checked name="Simulation-probability" id="manual-Simulation-probability" class="hidden"/>
-                                                        <span class="label"></span> Manual Input
-                                                    </label>
-
-                                                    <label for="auto-Simulation-probability" class="radio">
-                                                        <input type="radio"  name="Simulation-probability" id="auto-Simulation-probability" class="hidden"/>
-                                                        <span class="label"></span>Auto Generated
-                                                    </label>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-                                        <div class="input-group Simulation-Generated-random-numbers">
-                                            <label for="Simulation-random-numbers" class="input-label mr-2"><span>Enter Random Numbers:</span></label>
-                                            <div class="ST-probabilities ml-2 " id="Simulation-random-numbers">
-                                                <div class="row">
-
-                                                    <input type="number" placeholder="Cus#1" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#2" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#3" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#4" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#5" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#6" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#7" class="input-field-generated p-2 m-2 ">
-                                                    <input type="number" placeholder="Cus#8" class="input-field-generated p-2 m-2 ">
-
-
-
-
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <button class="btn-simulation" >SOLVE<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="SQC-Simulation-output-container">
-                                <table class="SQC-Simulation-output-table table table-striped table-bordered table-hover Simulation-info-Table nowrap" id="SQC-Simulation-output-table">
-                                    <thead>
-                                    <tr>
-                                        <th>Customer</th>
-                                        <th>TBA</th>
-                                        <th>AT</th>
-                                        <th>ST</th>
-                                        <th>TSB</th>
-                                        <th>TCW</th>
-                                        <th>TSE</th>
-                                        <th>TCS</th>
-                                        <th>IS</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                        <td>NA</td>
-                                    </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-
-            </div>
-
-            <div class="output-cards-container">
-                <div class="output-cards">
+                <div class="info-ST">
                     <div class="row">
-                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
-                                <div class="single-output-card">
-                                    <div class="row">
-                                        <div class="col-md-7 output-card-title">
-                                            <h4><span>Average</span>Waiting <br> Time</h4>
-                                        </div>
-                                        <div class="col-md-3 card-value">
-                                            <h3><span>2.8</span></h3>
-                                        </div>
-                                    </div>
+                        <div class="SQC-ST-input-container col-md-5">
+                            <div class="input-ST">
+                                <div class="input-group">
+                                    <!--input:MAX ST-->
+                                    <label for="maxST" class="input-label mr-2">Max ST:</label>
+                                    <input class="input-field ml-2 " type="number" name="maxST" id="maxST">
                                 </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-8 output-card-title">
-                                        <h4><span>Average</span>Service <br> Time</h4>
-                                    </div>
-                                    <div class="col-md-4 card-value">
-                                        <h3><span>3.4</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-8 output-card-title">
-                                        <h4><span>Average</span>Time Between Arrivals</h4>
-                                    </div>
-                                    <div class="col-md-4 card-value">
-                                        <h3><span>4.3</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-7 output-card-title">
-                                        <h4><span>Average</span>Time user Spends in System</h4>
-                                    </div>
-                                    <div class="col-md-3 card-value">
-                                        <h3><span>6.2</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-8 output-card-title">
-                                        <h4><span>probability of</span>Waiting <br> in Queue</h4>
-                                    </div>
-                                    <div class="col-md-4 card-value">
-                                        <h3><span>0.65</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-8 output-card-title">
-                                        <h4><span>Average</span>Waiting Time of Those Who Wait</h4>
-                                    </div>
-                                    <div class="col-md-4 card-value">
-                                        <h3><span>4.3</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-7 output-card-title">
-                                        <h4><span>probability of </span>Server <br>Being Busy</h4>
-                                    </div>
-                                    <div class="col-md-3 card-value">
-                                        <h3><span>0.79</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-8 output-card-title">
-                                        <h4><span>probability of</span>Serve <br>Being Idle</h4>
-                                    </div>
-                                    <div class="col-md-4 card-value">
-                                        <h3><span>0.21</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
-                            <div class="single-output-card">
-                                <div class="row">
-                                    <div class="col-md-7 output-card-title">
-                                        <h4><span>The Time</span>I Took to Solve This Math!</h4>
-                                    </div>
-                                    <div class="col-md-5 card-value">
-                                        <h3><span>2.05</span></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <div class="input-group">
+                                    <!--input:ST probability type-->
+                                    <label for="ST-probability-Type" class="input-label mr-2">Probabilies:</label>
+                                    <div class="ST-probability-Type ml-2 " id="ST-probability-Type">
+                                        <div class="row">
 
 
+                                            <label for="manual-ST-probability" class="radio">
+                                                <input type="radio" name="ST-probability" id="manual-ST-probability"
+                                                       class="hidden"/>
+                                                <span class="label"></span> Manual Input
+                                            </label>
+
+                                            <label for="auto-ST-probability" class="radio">
+                                                <input type="radio" checked name="ST-probability"
+                                                       id="auto-ST-probability" class="hidden"/>
+                                                <span class="label"></span>Same Probability
+                                            </label>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--Manual ST probability input fields(generated depending on previous choice-->
+                                <div class="input-group ST-Generated-probabilites disabled">
+                                    <label for="ST-probabilities" class="input-label mr-2">Enter Probabilies:</label>
+                                    <div class="ST-probabilities ml-2 " id="ST-probabilities">
+                                        <div class="row">
+
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="ST:#"
+                                                   class="input-field-generated p-2 m-2 ">
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <!--Button: Generate  ST table-->
+                                <div class="input-group">
+                                    <button class="input-btn"><i class="fa fa-cog" aria-hidden="true"></i>Generate
+                                        SERVICE TIME Table <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <!--output: ST Table -->
+                        <div class="info-ST-left col-md-7 SQC-ST-output-container">
+                            <table class="table table-striped table-bordered table-hover ST-info-Table nowrap"
+                                   id="SQC-ST-output-table">
+                                <thead>
+                                <tr>
+                                    <th>Service <br>Time</th>
+                                    <th>Probability</th>
+                                    <th>Cumulative <br>Probability</th>
+                                    <th>Random Range</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                    <td>NA</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-
                 </div>
             </div>
+        </div>
+
+        <!--step3:Simulation Table Generation-->
+        <div class="SQC-step-container">
+            <div class="SQC-step3">
+                <div class="info-title info-title-step3">
+                    <h3><span>Step #3</span>Generating Simulation table</h3>
+                    <hr class="step-title">
+                </div>
+                <div class="info-Simulation">
+                    <div class="row">
+                        <div class="SQC-Simulation-input-container col-md-8">
+                            <div class="input-Simulation">
+                                <div class="input-group">
+                                    <!--MAX customers-->
+                                    <label for="customerNum" class="input-label mr-2"><span>Number of Customers:</span></label>
+                                    <input class="input-field ml-2 " type="number" name="customerNum" id="customerNum">
+                                </div>
+                                <!--Random number type-->
+                                <div class="input-group">
+                                    <label for="Simulation-random-Type" class="input-label mr-2"><span>Random Number Range:</span>:</label>
+                                    <div class="Simulation-random-Type ml-2 " id="Simulation-random-Type">
+                                        <div class="row">
 
 
-            <div class="footer-bg-image">  </div>
+                                            <label for="manual-Simulation-probability" class="radio">
+                                                <input type="radio" checked name="Simulation-probability"
+                                                       id="manual-Simulation-probability" class="hidden"/>
+                                                <span class="label"></span> Manual Input
+                                            </label>
+
+                                            <label for="auto-Simulation-probability" class="radio">
+                                                <input type="radio" name="Simulation-probability"
+                                                       id="auto-Simulation-probability" class="hidden"/>
+                                                <span class="label"></span>Auto Generated
+                                            </label>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                                <!--Manual Random number input fields(generated depending on previous choice-->
+                                <div class="input-group Simulation-Generated-random-numbers">
+                                    <label for="Simulation-random-numbers" class="input-label mr-2"><span>Enter Random Numbers:</span></label>
+                                    <div class="ST-probabilities ml-2 " id="Simulation-random-numbers">
+                                        <div class="row">
+
+                                            <input type="number" placeholder="Cus#1"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#2"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#3"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#4"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#5"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#6"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#7"
+                                                   class="input-field-generated p-2 m-2 ">
+                                            <input type="number" placeholder="Cus#8"
+                                                   class="input-field-generated p-2 m-2 ">
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <!--Button: Final Solve button to generate simulation table-->
+                            <div class="input-group">
+                                <button class="btn-simulation">SOLVE<i class="fa fa-chevron-down"
+                                                                       aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="SQC-Simulation-output-container">
+                        <!--output:Simulation table-->
+                        <table class="SQC-Simulation-output-table table table-striped table-bordered table-hover Simulation-info-Table nowrap"
+                               id="SQC-Simulation-output-table">
+                            <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>TBA</th>
+                                <th>AT</th>
+                                <th>ST</th>
+                                <th>TSB</th>
+                                <th>TCW</th>
+                                <th>TSE</th>
+                                <th>TCS</th>
+                                <th>IS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+                            <tr>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+
+    <!--Main Output-->
+    <div class="output-cards-container">
+        <div class="output-cards">
+            <div class="row">
+                <!--Card :average waiting time-->
+                <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-7 output-card-title">
+                                <h4><span>Average</span>Waiting <br> Time</h4>
+                            </div>
+                            <div class="col-md-3 card-value">
+                                <!--Card Output:average waiting time-->
+                                <h3><span>2.8</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :average service time-->
+                <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-8 output-card-title">
+                                <h4><span>Average</span>Service <br> Time</h4>
+                            </div>
+                            <div class="col-md-4 card-value">
+                                <!--Card output:average waiting time-->
+                                <h3><span>3.4</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :average Time Between Arrivals-->
+                <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-8 output-card-title">
+                                <h4><span>Average</span>Time Between Arrivals</h4>
+                            </div>
+                            <div class="col-md-4 card-value">
+                                <!--Card output:average Time Between Arrivals-->
+                                <h3><span>4.3</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :average Time User Spends in System-->
+                <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-7 output-card-title">
+                                <h4><span>Average</span>Time user Spends in System</h4>
+                            </div>
+                            <div class="col-md-3 card-value">
+                                <!--Card output:average Time User Spends in System-->
+                                <h3><span>6.2</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :Probability of waiting in Queue-->
+                <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-8 output-card-title">
+                                <h4><span>probability of</span>Waiting <br> in Queue</h4>
+                            </div>
+                            <div class="col-md-4 card-value">
+                                <!--Card output:Probability of waiting in Queue-->
+                                <h3><span>0.65</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :Average Waiting Time of Those Who wait-->
+                <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-8 output-card-title">
+                                <h4><span>Average</span>Waiting Time of Those Who Wait</h4>
+                            </div>
+                            <div class="col-md-4 card-value">
+                                <!--Card Output:Average Waiting Time of Those Who wait-->
+                                <h3><span>4.3</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :Probability of Server Being Busy-->
+                <div class="single-output-card-container col-md-3 offset-1 ml-auto mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-7 output-card-title">
+                                <h4><span>probability of </span>Server <br>Being Busy</h4>
+                            </div>
+                            <div class="col-md-3 card-value">
+                                <!--Card Output:Probability of Server Being Busy-->
+                                <h3><span>0.79</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :Probability of Server Being Idle-->
+                <div class="single-output-card-container col-md-3 offset-1 mobile-card ">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-8 output-card-title">
+                                <h4><span>probability of</span>Serve <br>Being Idle</h4>
+                            </div>
+                            <div class="col-md-4 card-value">
+                                <!--Card Output:Probability of Server Being Idle-->
+                                <h3><span>0.21</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card :The Time I took to Solve This Math!-->
+                <div class="single-output-card-container col-md-3 offset-1 mr-auto mobile-card">
+                    <div class="single-output-card">
+                        <div class="row">
+                            <div class="col-md-7 output-card-title">
+                                <h4><span>The Time</span>I Took to Solve This Math!</h4>
+                            </div>
+                            <div class="col-md-5 card-value">
+                                <!--Card Output:The Time I took to Solve This Math!-->
+                                <h3><span>2.05</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
 
         </div>
+    </div>
+
+
+    <div class="footer-bg-image"></div>
+
+</div>
+
+<!--===================
+content goes here:ends
+=====================-->
 
 <!--===================
 Footer goes here:
 =====================-->
 
-
-
-    <div class="footer">
-        <p>© <a href="https://github.com/IamSAL" target="_blank">Sheikh Salman</a></p>
-    </div>
-
+<div class="footer">
+    <p>© <a href="https://github.com/IamSAL" target="_blank">Sheikh Salman</a></p>
+</div>
 
 
 <!--JQuery-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
 <script src="../../imports/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.17/js/dataTables.bootstrap4.min.js"></script>
