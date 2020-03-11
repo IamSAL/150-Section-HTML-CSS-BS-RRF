@@ -255,7 +255,9 @@ content goes here:
                         <!--input:TBA table input-->
                         <div class="SQC-TBA-input-container col-md-5">
                             <div class="input-TBA">
+                                <span class="error msg" id="msgTBA" >Please enter Max TBA first.</span>
                                 <div class="input-group">
+
                                     <!--MAX TBA:-->
                                     <label for="maxTBA" class="input-label mr-2">Max TBA:</label>
                                     <input class="input-field ml-2 " type="number" name="maxTBA" id="maxTBA">
@@ -269,15 +271,15 @@ content goes here:
                                         <div class="row">
 
 
-                                            <label for="manual-TBA-probability" class="radio">
-                                                <input type="radio" name="TBA-probability" id="manual-TBA-probability"
-                                                       class="hidden"/>
-                                                <span class="label"></span> Manual Input
+                                            <label for="manual_TBA_Probability" class="radio" >
+                                                <input type="radio" name="TBA_probability" id="manual_TBA_Probability"
+                                                       class="hidden" >
+                                                <span class="label"></span> Manual  Input
                                             </label>
 
-                                            <label for="auto-TBA-probability" class="radio">
-                                                <input type="radio" checked name="TBA-probability"
-                                                       id="auto-TBA-probability" class="hidden"/>
+                                            <label for="auto_TBA_Probability" class="radio" onclick="">
+                                                <input type="radio" checked name="TBA_probability"
+                                                       id="auto_TBA_Probability" class="hidden"/>
                                                 <span class="label"></span>Same Probability
                                             </label>
 
@@ -289,25 +291,15 @@ content goes here:
                                 </div>
 
                                 <!--Manual TBA probability input fields(generated depending on previous choice-->
-                                <div class="input-group TBA-Generated-probabilites disabled">
-                                    <label for="TBA-probabilities" class="input-label mr-2">Enter Probabilies:</label>
-                                    <div class="TBA-probabilities ml-2 " id="TBA-probabilities">
-                                        <div class="row">
+                                <div class="input-group TBA_Generated_container disabled">
+                                    <label for="TBA_Generated_Fields_container" class="input-label mr-2">Enter Probabilies:</label>
+                                    <div class=" ml-2 " id="TBA_Generated_Fields_container">
+                                        <div class="row" id="TBA_Generated_Fields">
 
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="TBA:#"
-                                                   class="input-field-generated p-2 m-2 ">
+
+
+
+
 
 
                                         </div>
@@ -408,6 +400,7 @@ content goes here:
                     <div class="row">
                         <div class="SQC-ST-input-container col-md-5">
                             <div class="input-ST">
+                                <span class="error msg" id="msgST" >Please enter Max ST first</span>
                                 <div class="input-group">
                                     <!--input:MAX ST-->
                                     <label for="maxST" class="input-label mr-2">Max ST:</label>
@@ -420,15 +413,15 @@ content goes here:
                                         <div class="row">
 
 
-                                            <label for="manual-ST-probability" class="radio">
-                                                <input type="radio" name="ST-probability" id="manual-ST-probability"
+                                            <label for="manual_ST_Probability" class="radio">
+                                                <input type="radio" name="ST-probability" id="manual_ST_Probability"
                                                        class="hidden"/>
                                                 <span class="label"></span> Manual Input
                                             </label>
 
-                                            <label for="auto-ST-probability" class="radio">
+                                            <label for="auto_ST_Probability" class="radio">
                                                 <input type="radio" checked name="ST-probability"
-                                                       id="auto-ST-probability" class="hidden"/>
+                                                       id="auto_ST_Probability" class="hidden"/>
                                                 <span class="label"></span>Same Probability
                                             </label>
 
@@ -440,23 +433,11 @@ content goes here:
                                 </div>
 
                                 <!--Manual ST probability input fields(generated depending on previous choice-->
-                                <div class="input-group ST-Generated-probabilites disabled">
+                                <div class="input-group ST_Generated_container disabled">
                                     <label for="ST-probabilities" class="input-label mr-2">Enter Probabilies:</label>
                                     <div class="ST-probabilities ml-2 " id="ST-probabilities">
-                                        <div class="row">
+                                        <div class="row" id="ST_Generated_Fields">
 
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="ST:#"
-                                                   class="input-field-generated p-2 m-2 ">
 
 
                                         </div>
@@ -552,6 +533,7 @@ content goes here:
                     <div class="row">
                         <div class="SQC-Simulation-input-container col-md-8">
                             <div class="input-Simulation">
+                                <span class="error msg" id="msgSimulation" >Please enter customer number first</span>
                                 <div class="input-group">
                                     <!--MAX customers-->
                                     <label for="customerNum" class="input-label mr-2"><span>Number of Customers:</span></label>
@@ -564,15 +546,15 @@ content goes here:
                                         <div class="row">
 
 
-                                            <label for="manual-Simulation-probability" class="radio">
+                                            <label for="manual_Simulation_Randoms" class="radio">
                                                 <input type="radio" checked name="Simulation-probability"
-                                                       id="manual-Simulation-probability" class="hidden"/>
+                                                       id="manual_Simulation_Randoms" class="hidden"/>
                                                 <span class="label"></span> Manual Input
                                             </label>
 
-                                            <label for="auto-Simulation-probability" class="radio">
+                                            <label for="auto_Simulation_Randoms" class="radio">
                                                 <input type="radio" name="Simulation-probability"
-                                                       id="auto-Simulation-probability" class="hidden"/>
+                                                       id="auto_Simulation_Randoms" class="hidden"/>
                                                 <span class="label"></span>Auto Generated
                                             </label>
 
@@ -584,27 +566,12 @@ content goes here:
                                 </div>
 
                                 <!--Manual Random number input fields(generated depending on previous choice-->
-                                <div class="input-group Simulation-Generated-random-numbers">
+                                <div class="input-group Simulation_Generated_container disabled">
                                     <label for="Simulation-random-numbers" class="input-label mr-2"><span>Enter Random Numbers:</span></label>
                                     <div class="ST-probabilities ml-2 " id="Simulation-random-numbers">
-                                        <div class="row">
+                                        <div class="row" id="Simulation_Generated_Fields">
 
-                                            <input type="number" placeholder="Cus#1"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#2"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#3"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#4"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#5"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#6"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#7"
-                                                   class="input-field-generated p-2 m-2 ">
-                                            <input type="number" placeholder="Cus#8"
-                                                   class="input-field-generated p-2 m-2 ">
+
 
 
                                         </div>
@@ -955,5 +922,8 @@ Footer goes here:
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 <script src="../script.js"></script>
+<!--scq math solver script-->
+<script src="scq.js"></script>
+
 </body>
 </html>
