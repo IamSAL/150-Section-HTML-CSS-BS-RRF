@@ -97,6 +97,19 @@ auto_Simulation_Randoms.addEventListener('click', () => {
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 function inputFieldGenerator(howMany, parent, type, placeholder, classArray) {
 
     for (let i = 1; i <= howMany; i++) {
