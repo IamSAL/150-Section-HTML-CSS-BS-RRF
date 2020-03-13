@@ -255,7 +255,7 @@ content goes here:
                         <!--input:TBA table input-->
                         <div class="SQC-TBA-input-container col-md-5">
                             <div class="input-TBA">
-                                <span class="error msg" id="msgTBA" >Please enter Max TBA first.</span>
+                                <span class="error msg" id="msgTBA">Please enter Max TBA first.</span>
                                 <div class="input-group">
 
                                     <!--MAX TBA:-->
@@ -311,7 +311,7 @@ content goes here:
 
                                 <!--Button:TBA table generate-->
                                 <div class="input-group">
-                                    <button class="input-btn"><i class="fa fa-cog" aria-hidden="true"></i>Generate TBA
+                                    <button class="input-btn" id="generateTBA_btn"><i class="fa fa-cog" aria-hidden="true"></i>Generate TBA
                                         Table <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                 </div>
 
@@ -322,8 +322,8 @@ content goes here:
 
                         <!--output:TBA table output-->
                         <div class="info-TBA-left col-md-7 SQC-TBA-output-container">
-                            <table class="table table-striped table-bordered table-hover TBA-info-Table nowrap"
-                                   id="SQC-TBA-output-table">
+                            <table class="table table-striped table-bordered table-hover TBA-info-Table TBA_output_table nowrap"
+                                   id="outputTBA_table">
                                 <thead>
                                 <tr>
                                     <th>Time <br>Between Arrival</th>
@@ -332,7 +332,7 @@ content goes here:
                                     <th>Random Range</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="outputTBA_table_content">
                                 <tr>
                                     <td>NA</td>
                                     <td>NA</td>

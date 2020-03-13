@@ -1,14 +1,14 @@
 $(document).ready(function () {
-var TBA_table=$('#SQC-TBA-output-table').DataTable({
-    responsive: true,
-    pageLength:5,
-    searching:true,
-    paginate:false,
-    scrollY:300,
-    bInfo : false,
-
-});
-    new $.fn.dataTable.FixedHeader(TBA_table);
+// var TBA_table=$('#outputTBA_table').DataTable({
+//     responsive: true,
+//     pageLength:5,
+//     searching:true,
+//     paginate:false,
+//     scrollY:300,
+//     bInfo : false,
+//
+// });
+//     new $.fn.dataTable.FixedHeader(TBA_table);
 
 
     var ST_table=$('#SQC-ST-output-table').DataTable({

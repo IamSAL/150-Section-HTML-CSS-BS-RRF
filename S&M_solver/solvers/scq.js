@@ -19,7 +19,7 @@ manual_TBA_Probability.addEventListener('click', () => {
         setTimeout(() => msgFieldTBA.style.visibility = 'hidden', 3000)
         maxTBA.focus();
     }
-    console.log(maxTBA.value);
+
     childrenDestroyer(TBA_Generated_Fields);
     TBA_Generated_container.classList.remove('disabled');
     inputFieldGenerator(maxTBA.value, TBA_Generated_Fields, 'number', 'TBA', ['input-field-generated', 'p-2', 'm-2', 'TBA_probability']);
@@ -29,6 +29,66 @@ auto_TBA_Probability.addEventListener('click', () => {
     TBA_Generated_container.classList.add('disabled');
     childrenDestroyer(TBA_Generated_Fields)
 });
+
+
+const generateTBA_btn = document.querySelector("#generateTBA_btn");
+const outputTBA_table_content = document.querySelector("#outputTBA_table_content");
+
+generateTBA_btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (inputValidation(maxTBA, 'msgTBA', 'Empty Field: maxTBA not given ', manual_TBA_Probability, TBA_Generated_Fields)) {
+        childrenDestroyer(outputTBA_table_content);
+        outputTBA_table_content.parentElement.style.transition = '0.1s';
+        outputTBA_table_content.parentElement.style.backgroundColor = 'rgba(157, 218, 253, 0.12)';
+        setTimeout(function () {
+
+            outputTBA_table_content.parentElement.style.backgroundColor = 'unset';
+            outputTBA_table_content.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
+        }, 1000)
+
+
+        for (let i = 1; i <= maxTBA.value; i++) {
+
+
+            var TBA_row = document.createElement('tr');
+
+            let TBA_value = document.createElement('td');
+            TBA_value.innerHTML = `TBA_${i}`;
+            TBA_row.appendChild(TBA_value);
+
+            let TBA_probability_value = document.createElement('td');
+            TBA_probability_value.innerHTML = `probb_${i}`;
+            TBA_row.appendChild(TBA_probability_value);
+
+            let TBA_cum_probability_value = document.createElement('td');
+            TBA_cum_probability_value.innerHTML = `cumu_probb_${i}`;
+            TBA_row.appendChild(TBA_cum_probability_value);
+
+            let TBA_range_value = document.createElement('td');
+            TBA_range_value.innerHTML = `range_${i}`;
+            TBA_row.appendChild(TBA_range_value);
+
+            outputTBA_table_content.appendChild(TBA_row)
+        }
+        // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
+
+
+        if ($.fn.dataTable.isDataTable('#outputTBA_table')) {
+
+            table = $('#outputTBA_table').DataTable();
+        } else {
+            table = $('#outputTBA_table').DataTable({
+                responsive: true,
+                pageLength: 5,
+                sort: false,
+                searching: false,
+                paginate: false,
+                scrollY: 300,
+                bInfo: false,
+            });
+        }
+    }
+})
 
 
 //show or hide generated input fields of ST table generation(step#2)  based user choice
@@ -48,8 +108,8 @@ manual_ST_Probability.addEventListener('click', () => {
         } else if (maxST.value == "") {
             msgFieldST.innerHTML = 'Please enter Max ST first'
         }
-        msgFieldST.style.visibility = 'unset'
-        setTimeout(() => msgFieldST.style.visibility = 'hidden', 3000)
+        msgFieldST.style.visibility = 'unset';
+        setTimeout(() => msgFieldST.style.visibility = 'hidden', 3000);
         maxST.focus();
     }
     console.log(maxST.value);
@@ -97,19 +157,6 @@ auto_Simulation_Randoms.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function inputFieldGenerator(howMany, parent, type, placeholder, classArray) {
 
     for (let i = 1; i <= howMany; i++) {
@@ -127,5 +174,53 @@ function childrenDestroyer(parent) {
         parent.removeChild(child);
         child = parent.lastElementChild;
     }
+}
+
+function messageShower(spanID, content) {
+
+    let msgField = document.getElementById(spanID);
+    let goto = msgField.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+    msgField.innerHTML = content;
+    msgField.style.visibility = 'unset';
+    goto.scrollIntoView();
+    setTimeout(() => msgField.style.visibility = 'hidden', 3000)
+
+}
+
+function emptyField(parent) {
+    let status = false;
+    let child = parent.firstElementChild;
+    for (let i = 1; i <= parent.childElementCount; i++) {
+        if (child.value == "") {
+            status = true;
+        }
+        child = child.nextElementSibling;
+    }
+    return status;
+}
+
+function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, GeneratedFieldParent) {
+    if (maxVal.value == "" || maxVal.value == '0') {
+        if (maxVal.value == '0') {
+            msgContent = msgContent + "or 0";
+        }
+        messageShower(msgSpan, msgContent);
+        maxVal.focus();
+        return false
+    } else if (manualProbabiityParent.checked && emptyField(GeneratedFieldParent)) {
+        messageShower(msgSpan, 'Please input all manual values');
+        GeneratedFieldParent.style.transition = '0.2s';
+        GeneratedFieldParent.style.backgroundColor = 'rgba(221,21,34,0.16)';
+        GeneratedFieldParent.style.borderRadius = '10px';
+
+        setTimeout(function () {
+            GeneratedFieldParent.style.backgroundColor = 'unset';
+            GeneratedFieldParent.style.borderRadius = 'unset';
+
+        }, 3000);
+        return false
+    }
+
+    return true
 }
 
