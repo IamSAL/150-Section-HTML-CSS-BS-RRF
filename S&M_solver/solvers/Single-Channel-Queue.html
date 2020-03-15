@@ -260,7 +260,7 @@ content goes here:
 
                                     <!--MAX TBA:-->
                                     <label for="maxTBA" class="input-label mr-2">Max TBA:</label>
-                                    <input class="input-field ml-2 " type="number" name="maxTBA" id="maxTBA">
+                                    <input class="input-field ml-2 " type="number" name="maxTBA" id="maxTBA" maxlength="10">
                                 </div>
 
                                 <!--TBA Probability type auto or manual-->
@@ -306,6 +306,17 @@ content goes here:
 
 
                                     </div>
+
+                                </div>
+
+                                <div class="mb-4">
+                                    <p class="digitInfo  custom-select-sm ml-1">Random Digit Range: <span id="digitTBAdisplay"></span> <span id="digitTBAExample"></span> <span class="digitChange" id="digitChangeTBA">Change?</span> <select
+                                            id="digitChangeFieldTBA" type="number" class=" w-25 digitField custom-select-sm">
+                                        <option value="3">1000(3)</option>
+                                        <option value="4">10000(4)</option>
+                                        <option value="5">100000(5)</option>
+                                        <option value="6">1000000(6)</option>
+                                    </select></p>
 
                                 </div>
 
@@ -435,6 +446,19 @@ content goes here:
                                     </div>
 
                                 </div>
+
+                                <div class="mb-4">
+                                    <p class="digitInfo  custom-select-sm ml-1">Random Digit Range: <span id="digitSTdisplay"></span> <span id="digitSTExample"></span> <span class="digitChange" id="digitChangeST">Change?</span> <select
+                                            id="digitChangeFieldST" type="number" class=" w-25 digitField custom-select-sm">
+                                        <option value="2">100(2)</option>
+                                        <option value="3">1000(3)</option>
+                                        <option value="4">10000(4)</option>
+                                        <option value="5">100000(5)</option>
+                                    </select></p>
+
+                                </div>
+
+
                                 <!--Button: Generate  ST table-->
                                 <div class="input-group">
                                     <button class="input-btn" id="generateST_btn"><i class="fa fa-cog" aria-hidden="true"></i>Generate
@@ -908,6 +932,8 @@ Footer goes here:
 <script src="../script.js"></script>
 <!--scq math solver script-->
 <script src="scq.js"></script>
+
+
 
 </body>
 </html>

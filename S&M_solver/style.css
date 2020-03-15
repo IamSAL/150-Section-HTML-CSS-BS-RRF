@@ -939,6 +939,30 @@ input::placeholder {
     overflow-x: hidden;
     min-height: 175px;
 }
+
+.digitInfo{
+    font-size: 12px;
+    color: grey;
+
+}
+.digitField{
+    transition: 0.3s;
+    visibility: hidden;
+
+}
+.digitChange{
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    background-color: #ececec;
+    padding: 5px;
+    border: 1px solid #a8a8a8;
+
+}
+
+
+
+
 /*responsiveness SQCsolver page*/
 
 @media only screen and (max-width: 600px) {
@@ -1055,6 +1079,13 @@ input::placeholder {
 
     .mobile-card {
         margin: 5% 5% !important;
+    }
+
+    .digitField{
+
+        margin-left: 33%;
+        margin-right: auto;
+        margin-top: 3px;
     }
 
 
