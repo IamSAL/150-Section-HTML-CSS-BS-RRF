@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://nightly.datatables.net/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../imports/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style.css">
-    <title>Document</title>
+    <title>Single Channel Queue</title>
 </head>
 <body>
 <!--===================
@@ -294,6 +294,7 @@ content goes here:
                                 <div class="input-group TBA_Generated_container disabled">
                                     <label for="TBA_Generated_Fields_container" class="input-label mr-2">Enter Probabilies:</label>
                                     <div class=" ml-2 " id="TBA_Generated_Fields_container">
+                                        <p class="digitMessage">Current: <span id="currentValueTBA" class="currentValue"></span><span id="requiredValueTBA" class="requiredValue"></span></p>
                                         <div class="row" id="TBA_Generated_Fields">
 
 
@@ -333,13 +334,13 @@ content goes here:
 
                         <!--output:TBA table output-->
                         <div class="info-TBA-left col-md-7 SQC-TBA-output-container">
-                            <table class="table table-striped table-bordered table-hover TBA-info-Table TBA_output_table nowrap"
-                                   id="outputTBA_table">
+                            <div id="tableContainerTBA"><table class="table table-striped table-bordered table-hover TBA-info-Table TBA_output_table"
+                                                               id="outputTBA_table">
                                 <thead>
                                 <tr>
-                                    <th>Time <br>Between Arrival</th>
+                                    <th>Time Between Arrival</th>
                                     <th>Probability</th>
-                                    <th>Cumulative <br>Probability</th>
+                                    <th>Cumulative Probability</th>
                                     <th>Random Range</th>
                                 </tr>
                                 </thead>
@@ -383,7 +384,8 @@ content goes here:
 
 
                                 </tbody>
-                            </table>
+                            </table></div>
+
                         </div>
                     </div>
                 </div>
@@ -436,6 +438,7 @@ content goes here:
                                 <div class="input-group ST_Generated_container disabled">
                                     <label for="ST-probabilities" class="input-label mr-2">Enter Probabilies:</label>
                                     <div class="ST-probabilities ml-2 " id="ST-probabilities">
+                                        <p class="digitMessage">Current: <span id="currentValueST" class="currentValue"></span><span id="requiredValueST" class="requiredValue"></span></p>
                                         <div class="row" id="ST_Generated_Fields">
 
 

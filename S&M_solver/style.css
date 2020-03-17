@@ -960,7 +960,32 @@ input::placeholder {
 
 }
 
+.digitMessage{
+    font-size: 15px;
 
+}
+.currentValue{
+    text-align: left;
+    transition: 0.2s;
+    padding: 5px 10px;
+}
+.digitMessage{
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px !important;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #f7f6f6;
+}
+.requiredValue {
+    text-align: left;
+    transition: 0.3s;
+    font-size: 12px;
+    color: rgba(220, 48, 39, 0.78);
+    margin-left: 3px;
+    padding: 4px 5px;
+}
 
 
 /*responsiveness SQCsolver page*/

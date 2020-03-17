@@ -5,98 +5,75 @@ const TBA_Generated_container = document.querySelector('.TBA_Generated_container
 const TBA_Generated_Fields = document.querySelector('#TBA_Generated_Fields');
 var maxTBA = document.querySelector('#maxTBA');
 const msgFieldTBA = document.querySelector('#msgTBA');
-const digitTBAbtn=document.querySelector('#digitChangeTBA');
-const digitTBAfield=document.querySelector('#digitChangeFieldTBA');
-const digitTBAdisplay=document.getElementById('digitTBAdisplay');
-var digitTBA=3;
+const digitTBAbtn = document.querySelector('#digitChangeTBA');
+const digitTBAfield = document.querySelector('#digitChangeFieldTBA');
+const digitTBAdisplay = document.getElementById('digitTBAdisplay');
 
-digitTBAbtn.addEventListener('click',function (e) {
-    e.preventDefault()
-   digitTBAfield.style.visibility='unset';
-});
-digitTBAfield.addEventListener('blur',function (e) {
+const currentValueContainerTBA = document.getElementById('currentValueTBA');
+const requiredValueContainerTBA = document.getElementById('requiredValueTBA');
+var digitTBA = 3;
+
+digitTBAbtn.addEventListener('click', function (e) {
     e.preventDefault();
-   digitTBAsetter();
+    digitTBAfield.style.visibility = 'unset';
+});
+digitTBAfield.addEventListener('blur', function (e) {
+    e.preventDefault();
+    digitTBAsetter();
 
 });
 
-digitTBAfield.addEventListener('mouseout',function (e) {
+digitTBAfield.addEventListener('mouseout', function (e) {
 
     digitTBAsetter();
 
 });
 
-function digitTBAsetter(){
-    digitTBA=digitTBAfield.value;
-    digitTBAfield.style.visibility='hidden';
-    digitTBAdisplay.innerHTML=digitTBA;
-    if (digitTBA==3){
-        document.getElementById("digitTBAExample").innerHTML='(1000)';
-    }else if(digitTBA==4) {
+function digitTBAsetter() {
+    digitTBA = digitTBAfield.value;
+    digitTBAfield.style.visibility = 'hidden';
+    digitTBAdisplay.innerHTML = digitTBA;
+    if (digitTBA == 3) {
+        document.getElementById("digitTBAExample").innerHTML = '(1000)';
+    } else if (digitTBA == 4) {
         document.getElementById("digitTBAExample").innerHTML = '(10000)';
-    }else if(digitTBA==5) {
+    } else if (digitTBA == 5) {
         document.getElementById("digitTBAExample").innerHTML = '(100000)';
-    }else if(digitTBA==6) {
+    } else if (digitTBA == 6) {
         document.getElementById("digitTBAExample").innerHTML = '(1000000)';
     }
 }
 
-digitTBAdisplay.innerHTML=digitTBA;
-document.getElementById("digitTBAExample").innerHTML='(1000)';
+digitTBAdisplay.innerHTML = digitTBA;
+document.getElementById("digitTBAExample").innerHTML = '(1000)';
 
 maxTBA.addEventListener('blur', function () {
     TBA_validator();
 });
 
 
-maxTBA.addEventListener('keyup', function () {
+maxTBA.addEventListener('input', function () {
 
-    if(maxTBA.value.toString().length>4){
-        if (maxTBA.value>10000){
-            messageShower('msgTBA','sorry,more than 10000 will hang up your pc!');
-            maxTBA.value=parseInt(maxTBA.value.toString().substring(0,4));
-            setTimeout(function () {
-                messageShower('msgTBA','open console to see output faster if value>5000');
-            },2000)
+
+    if (maxTBA.value.toString().length > 4) {
+        if (maxTBA.value > 10000) {
+            messageShower('msgTBA', 'Please see console to see faster output for larger inputs.');
+            maxTBA.value = parseInt(maxTBA.value.toString().substring(0, 4));
         }
-        maxTBA.value=parseInt(maxTBA.value.toString().substring(0,5));
+        maxTBA.value = parseInt(maxTBA.value.toString().substring(0, 5));
     }
 
 
-    if (maxTBA.value==""){
+    if (maxTBA.value == "") {
         setTimeout(function () {
             TBA_validator();
-        },4000)
-    }else {
+
+        }, 4000)
+    } else {
         TBA_validator();
+
     }
 
-});
-
-
-maxTBA.addEventListener('keydown', function () {
-
-
-
-    if(maxTBA.value.toString().length>4){
-        if (maxTBA.value>10000){
-            messageShower('msgTBA','sorry,more than 10000 will hang up your pc!');
-            maxTBA.value=parseInt(maxTBA.value.toString().substring(0,4));
-            setTimeout(function () {
-                messageShower('msgTBA','open console to see output faster if value>5000');
-            },2000)
-        }
-        maxTBA.value=parseInt(maxTBA.value.toString().substring(0,5));
-    }
-
-
-    if (maxTBA.value==""){
-        setTimeout(function () {
-            TBA_validator();
-        },4000)
-    }else {
-        TBA_validator();
-    }
 
 });
 
@@ -105,6 +82,7 @@ manual_TBA_Probability.addEventListener('click', function () {
 });
 
 function TBA_validator() {
+
     if (manual_TBA_Probability.checked) {
 
 
@@ -125,6 +103,9 @@ function TBA_validator() {
             TBA_Generated_container.classList.remove('disabled');
         }
         inputFieldGenerator(maxTBA.value, TBA_Generated_Fields, 'number', 'TBA', ['input-field-generated', 'p-2', 'm-2', 'TBA_probability']);
+        currentValueContainerTBA.innerHTML = `0`;
+        requiredValueContainerTBA.innerHTML = `Required: +1`;
+        childEventSetter(TBA_Generated_Fields, probabilityChecker.bind(this, TBA_Generated_Fields, currentValueContainerTBA, requiredValueContainerTBA));
     }
 }
 
@@ -134,12 +115,58 @@ auto_TBA_Probability.addEventListener('click', () => {
 });
 
 
+function childEventSetter(parent, func) {
+
+    var GeneratedChild = parent.firstElementChild;
+    for (i = 0; i < parent.childElementCount; i++) {
+        GeneratedChild.addEventListener('input', function () {
+            func();
+        });
+        GeneratedChild = GeneratedChild.nextElementSibling;
+    }
+}
+
+
+function probabilityChecker(Generated_Fields_parent, currentValueContainer, requiredValueContainer) {
+
+    if (probabilityValidator(Generated_Fields_parent) == 'one') {
+        currentValueContainer.innerHTML = 1;
+        currentValueContainer.style.color = '52C265';
+
+        if (emptyField(Generated_Fields_parent) == false) {
+            requiredValueContainer.innerHTML = '<i class="fa fa-check-circle" aria-hidden="true"></i> Perfect!';
+            requiredValueContainer.style.color = 'unset';
+            requiredValueContainer.style.borderColor = 'unset'
+        } else {
+            requiredValueContainer.innerHTML = '<i class="fa fa-exclamation-triangle" style="color: #DC3027;" aria-hidden="true"></i> Empty fields!';
+        }
+
+
+    } else {
+
+        probabilityValue = probabilityValidator(Generated_Fields_parent);
+        currentValueContainer.innerHTML = probabilityValue;
+        currentValueContainer.style.color = 'unset';
+        var requiredValue = 1 - parseFloat(probabilityValue);
+        if (probabilityValue < 1) {
+            requiredValue = "+" + requiredValue;
+        }
+
+        requiredValueContainer.innerHTML = `Required: ${requiredValue.toString().substring(0, 7)}`;
+        requiredValueContainer.style.backgroundColor = 'unset';
+        requiredValueContainer.style.color = '#dc3027';
+
+    }
+
+}
+
+
 const generateTBA_btn = document.querySelector("#generateTBA_btn");
 const outputTBA_table_content = document.querySelector("#outputTBA_table_content");
 
 generateTBA_btn.addEventListener('click', (e) => {
-    if(maxTBA.value>3000){
-        messageShower('msgTBA','Loading.....')
+    if (maxTBA.value > 3000) {
+        messageShower('msgTBA', 'Loading.....')
     }
     if (inputValidation(maxTBA, 'msgTBA', 'Empty Field: maxTBA not given ', manual_TBA_Probability, TBA_Generated_Fields)) {
 
@@ -186,72 +213,71 @@ const ST_Generated_container = document.querySelector('.ST_Generated_container')
 const ST_Generated_Fields = document.querySelector('#ST_Generated_Fields')
 var maxST = document.querySelector('#maxST');
 const msgFieldST = document.querySelector('#msgST');
+const currentValueContainerST = document.getElementById('currentValueST');
+const requiredValueContainerST = document.getElementById('requiredValueST');
 
 
+const digitSTbtn = document.querySelector('#digitChangeST');
+const digitSTfield = document.querySelector('#digitChangeFieldST');
+const digitSTdisplay = document.getElementById('digitSTdisplay');
+var digitST = 2;
 
-
-const digitSTbtn=document.querySelector('#digitChangeST');
-const digitSTfield=document.querySelector('#digitChangeFieldST');
-const digitSTdisplay=document.getElementById('digitSTdisplay');
-var digitST=2;
-
-digitSTbtn.addEventListener('click',function (e) {
+digitSTbtn.addEventListener('click', function (e) {
     e.preventDefault();
-    digitSTfield.style.visibility='unset';
+    digitSTfield.style.visibility = 'unset';
 });
-digitSTfield.addEventListener('blur',function (e) {
+digitSTfield.addEventListener('blur', function (e) {
     e.preventDefault();
     digitSTsetter();
 })
 
-digitSTfield.addEventListener('mouseout',function (e) {
+digitSTfield.addEventListener('mouseout', function (e) {
     e.preventDefault();
     digitSTsetter();
 })
 
 
-function digitSTsetter(){
-    digitST=digitSTfield.value;
-    digitSTfield.style.visibility='hidden';
-    digitSTdisplay.innerHTML=digitST;
-    if (digitST==2){
-        document.getElementById("digitSTExample").innerHTML='(100)';
-    }else if(digitST==3) {
+function digitSTsetter() {
+    digitST = digitSTfield.value;
+    digitSTfield.style.visibility = 'hidden';
+    digitSTdisplay.innerHTML = digitST;
+    if (digitST == 2) {
+        document.getElementById("digitSTExample").innerHTML = '(100)';
+    } else if (digitST == 3) {
         document.getElementById("digitSTExample").innerHTML = '(1000)';
-    }else if(digitST==4) {
+    } else if (digitST == 4) {
         document.getElementById("digitSTExample").innerHTML = '(10000)';
-    }else if(digitST==5) {
+    } else if (digitST == 5) {
         document.getElementById("digitSTExample").innerHTML = '(100000)';
     }
 
 
 }
 
-digitSTdisplay.innerHTML=digitST;
-document.getElementById("digitSTExample").innerHTML='(100)';
+digitSTdisplay.innerHTML = digitST;
+document.getElementById("digitSTExample").innerHTML = '(100)';
 
 
 maxST.addEventListener('keydown', function () {
 
 
-    if(maxST.value.toString().length>4){
-        if (maxST.value>10000){
-            messageShower('msgST','sorry,more than 10000 will hang up your pc!');
-            maxST.value=parseInt(maxST.value.toString().substring(0,4));
+    if (maxST.value.toString().length > 4) {
+        if (maxST.value > 10000) {
+            messageShower('msgST', 'sorry,more than 10000 will hang up your pc!');
+            maxST.value = parseInt(maxST.value.toString().substring(0, 4));
             setTimeout(function () {
-                messageShower('msgST','open console to see output faster if value>5000');
-            },2000)
+                messageShower('msgST', 'open console to see output faster if value>5000');
+            }, 2000)
         }
-        maxST.value=parseInt(maxST.value.toString().substring(0,5));
+        maxST.value = parseInt(maxST.value.toString().substring(0, 5));
     }
 
 
-
-    if (maxST.value==""){
+    if (maxST.value == "") {
         setTimeout(function () {
             ST_validator();
-        },4000)
-    }else {
+        }, 4000)
+    } else {
         ST_validator();
     }
 
@@ -260,22 +286,22 @@ maxST.addEventListener('keydown', function () {
 
 maxST.addEventListener('keyup', function () {
 
-    if(maxST.value.toString().length>4){
-        if (maxST.value>10000){
-            messageShower('msgST','sorry,more than 10000 will hang up your pc!');
-            maxST.value=parseInt(maxST.value.toString().substring(0,4));
+    if (maxST.value.toString().length > 4) {
+        if (maxST.value > 10000) {
+            messageShower('msgST', 'sorry,more than 10000 will hang up your pc!');
+            maxST.value = parseInt(maxST.value.toString().substring(0, 4));
             setTimeout(function () {
-                messageShower('msgST','open console to see output faster if value>5000');
-            },2000)
+                messageShower('msgST', 'open console to see output faster if value>5000');
+            }, 2000)
         }
-        maxST.value=parseInt(maxST.value.toString().substring(0,5));
+        maxST.value = parseInt(maxST.value.toString().substring(0, 5));
     }
 
-    if (maxST.value==""){
+    if (maxST.value == "") {
         setTimeout(function () {
             ST_validator();
-        },4000)
-    }else {
+        }, 4000)
+    } else {
         ST_validator();
     }
 });
@@ -307,6 +333,9 @@ function ST_validator() {
             ST_Generated_container.classList.remove('disabled');
         }
         inputFieldGenerator(maxST.value, ST_Generated_Fields, 'number', 'ST ', ['input-field-generated', 'p-2', 'm-2', 'ST_probability']);
+        currentValueContainerST.innerHTML = `0`;
+        requiredValueContainerST.innerHTML = `Required: +1`;
+        childEventSetter(ST_Generated_Fields, probabilityChecker.bind(this, ST_Generated_Fields, currentValueContainerST, requiredValueContainerST));
     }
 }
 
@@ -321,8 +350,8 @@ const outputST_table_content = document.querySelector("#outputST_table_content")
 
 generateST_btn.addEventListener('click', (e) => {
     e.preventDefault();
-    if(maxST.value>3000){
-        messageShower('msgTBA','Loading.....')
+    if (maxST.value > 3000) {
+        messageShower('msgTBA', 'Loading.....')
     }
     if (inputValidation(maxST, 'msgST', 'Empty Field: maxST not given ', manual_ST_Probability, ST_Generated_Fields)) {
         childrenDestroyer(outputST_table_content);
@@ -336,7 +365,7 @@ generateST_btn.addEventListener('click', (e) => {
         }, 750);
 
 
-         ST_solver();
+        ST_solver();
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
 
@@ -451,51 +480,54 @@ generateSimulation_btn.addEventListener('click', (e) => {
 //Dom manipulation ends, here starts math solving..
 
 //TBA solver
-var TBA_range_list=[];
-function  TBA_solver() {
+var TBA_range_list = [];
 
-    var TBA_list=[];
-    var TBA_probability_list=[];
-    var TBA_cumu_list=[];
-    TBA_range_list=[];
-    var TBA_manual_probb_list=[];
+function TBA_solver() {
+
+    var TBA_list = [];
+    var TBA_probability_list = [];
+    var TBA_cumu_list = [];
+    TBA_range_list = [];
+    var TBA_manual_probb_list = [];
 
 
-    class TBA_range{
-        constructor(start,end) {
-            this.start=start;
-            this.end=end;
+    class TBA_range {
+        constructor(start, end) {
+            this.start = start;
+            this.end = end;
         }
-        getStart(){
+
+        getStart() {
             return this.start;
         }
-        getEnd(){
+
+        getEnd() {
             return this.end;
         }
     }
 
-    var multiplyTBA=1000;
-    if (digitTBA==3){
-        multiplyTBA=1000;
-    }else if(digitTBA==4){
-        multiplyTBA=10000;
-    }else if(digitTBA==5){
-        multiplyTBA=100000;
-    }else if(digitTBA==6){
-        multiplyTBA=1000000;
+    var multiplyTBA = 1000;
+    if (digitTBA == 3) {
+        multiplyTBA = 1000;
+    } else if (digitTBA == 4) {
+        multiplyTBA = 10000;
+    } else if (digitTBA == 5) {
+        multiplyTBA = 100000;
+    } else if (digitTBA == 6) {
+        multiplyTBA = 1000000;
     }
 
-    for (i=1;i<=maxTBA.value;i++){
+    for (i = 1; i <= maxTBA.value; i++) {
         TBA_list.push(i);
     }
 
-    if (auto_TBA_Probability.checked){
+    if (auto_TBA_Probability.checked) {
 
-        for (i=1;i<=TBA_list.length;i++){
-            TBA_probability_list.push(1/TBA_list.length);
+        for (i = 1; i <= TBA_list.length; i++) {
+            TBA_probability_list.push(1 / TBA_list.length);
         }
 
-    }else if(manual_TBA_Probability.checked){
+    } else if (manual_TBA_Probability.checked) {
         console.log('manual selected');
         let child = TBA_Generated_Fields.firstElementChild;
         for (let i = 1; i <= TBA_Generated_Fields.childElementCount; i++) {
@@ -504,34 +536,51 @@ function  TBA_solver() {
             }
             child = child.nextElementSibling;
         }
-            TBA_probability_list=[...TBA_manual_probb_list]
+        TBA_probability_list = [...TBA_manual_probb_list]
 
     }
-        let cumu=0;
-        for (i=0;i<TBA_probability_list.length;i++){
-            cumu=cumu+TBA_probability_list[i];
-            TBA_cumu_list.push(cumu);
-        }
-        TBA_cumu_list[TBA_cumu_list.length-1]=Math.round(TBA_cumu_list[TBA_cumu_list.length-1]);
+    let cumu = 0;
+    for (i = 0; i < TBA_probability_list.length; i++) {
+        cumu = cumu + TBA_probability_list[i];
+        TBA_cumu_list.push(cumu);
+    }
+    TBA_cumu_list[TBA_cumu_list.length - 1] = Math.round(TBA_cumu_list[TBA_cumu_list.length - 1]);
 
 
-        let start=1;
-        for (i=0;i<TBA_cumu_list.length;i++){
+    let start = 1;
+    for (i = 0; i < TBA_cumu_list.length; i++) {
 
-            let range= new TBA_range(start,Math.floor(TBA_cumu_list[i]*multiplyTBA));
+        let range = new TBA_range(start, Math.floor(TBA_cumu_list[i] * multiplyTBA));
 
-            start=Math.floor(TBA_cumu_list[i]*multiplyTBA)+1;
+        start = Math.floor(TBA_cumu_list[i] * multiplyTBA) + 1;
 
-            TBA_range_list.push(range);
-        }
+        TBA_range_list.push(range);
+    }
 
-        console.log(`TBA:${TBA_list} \n Probability:${TBA_probability_list} \n Manual probbs:${TBA_manual_probb_list} \n Cumulative Probability:${TBA_cumu_list}\n Random Range:${TBA_range_list}`)
+    // console.log(`TBA:${TBA_list} \n Probability:${TBA_probability_list} \n Manual probbs:${TBA_manual_probb_list} \n Cumulative Probability:${TBA_cumu_list}\n Random Range:${TBA_range_list}`)
+    //
+    // console.log(TBA_cumu_list[0].toString().substring(0, 7));
+    var tbl=document.createElement('table');
+    tbl.id='outputTBA_table';
+    tbl.classList.add('table','table-striped','table-bordered','table-hover','TBA-info-Table','TBA_output_table');
+    var thead=`<thead>
+                                <tr>
+                                    <th>Time Between Arrival</th>
+                                    <th>Probability</th>
+                                    <th>Cumulative Probability</th>
+                                    <th>Random Range</th>
+                                </tr>
+                                </thead>`;
 
-        console.log(TBA_cumu_list[0].toString().substring(0,7));
+    tbl.innerHTML=thead;
 
-        for (let i=0;i<maxTBA.value;i++){
-            generateRows(outputTBA_table_content,TBA_list[i],TBA_probability_list[i].toString().substring(0,7),TBA_cumu_list[i].toString().substring(0,7),`${TBA_range_list[i].start}-${TBA_range_list[i].end}`);
-        }
+    var tbody=document.createElement('tbody');
+    for (let i = 0; i < maxTBA.value; i++) {
+        tbody.appendChild(generateRows(TBA_list[i], TBA_probability_list[i].toString().substring(0, 7), TBA_cumu_list[i].toString().substring(0, 7), `${TBA_range_list[i].start}-${TBA_range_list[i].end}`));
+    }
+    tbl.appendChild(tbody);
+    document.getElementById('tableContainerTBA').innerHTML=" ";
+    document.getElementById('tableContainerTBA').appendChild(tbl);
 
 }
 
@@ -539,49 +588,52 @@ function  TBA_solver() {
 //ST_solver
 
 
-var ST_range_list=[];
-function  ST_solver() {
+var ST_range_list = [];
 
-    var ST_list=[];
-    var ST_probability_list=[];
-    var ST_cumu_list=[];
-    ST_range_list=[];
-    var ST_manual_probb_list=[];
+function ST_solver() {
+
+    var ST_list = [];
+    var ST_probability_list = [];
+    var ST_cumu_list = [];
+    ST_range_list = [];
+    var ST_manual_probb_list = [];
 
 
-    class ST_range{
-        constructor(start,end) {
-            this.start=start;
-            this.end=end;
+    class ST_range {
+        constructor(start, end) {
+            this.start = start;
+            this.end = end;
         }
-        getStart(){
+
+        getStart() {
             return this.start;
         }
-        getEnd(){
+
+        getEnd() {
             return this.end;
         }
     }
 
-    var multiplyST=100;
-    if (digitTBA==3){
-        multiplyST=1000;
-    }else if(digitTBA==4){
-        multiplyST=10000;
-    }else if(digitTBA==5){
-        multiplyST=100000;
+    var multiplyST = 100;
+    if (digitST == 3) {
+        multiplyST = 1000;
+    } else if (digitST == 4) {
+        multiplyST = 10000;
+    } else if (digitST == 5) {
+        multiplyST = 100000;
     }
 
-    for (i=1;i<=maxST.value;i++){
+    for (i = 1; i <= maxST.value; i++) {
         ST_list.push(i);
     }
 
-    if (auto_ST_Probability.checked){
+    if (auto_ST_Probability.checked) {
 
-        for (i=1; i<=ST_list.length; i++){
-            ST_probability_list.push(1/ST_list.length);
+        for (i = 1; i <= ST_list.length; i++) {
+            ST_probability_list.push(1 / ST_list.length);
         }
 
-    }else if(manual_ST_Probability.checked){
+    } else if (manual_ST_Probability.checked) {
         let child = ST_Generated_Fields.firstElementChild;
         for (let i = 1; i <= ST_Generated_Fields.childElementCount; i++) {
             if (child.value != "") {
@@ -589,23 +641,23 @@ function  ST_solver() {
             }
             child = child.nextElementSibling;
         }
-        ST_probability_list=[...ST_manual_probb_list]
+        ST_probability_list = [...ST_manual_probb_list]
 
     }
-    let cumu=0;
-    for (i=0; i<ST_probability_list.length; i++){
-        cumu=cumu+ST_probability_list[i];
+    let cumu = 0;
+    for (i = 0; i < ST_probability_list.length; i++) {
+        cumu = cumu + ST_probability_list[i];
         ST_cumu_list.push(cumu);
     }
-    ST_cumu_list[ST_cumu_list.length-1]=Math.round(ST_cumu_list[ST_cumu_list.length-1]);
+    ST_cumu_list[ST_cumu_list.length - 1] = Math.round(ST_cumu_list[ST_cumu_list.length - 1]);
 
 
-    let start=1;
-    for (i=0; i<ST_cumu_list.length; i++){
+    let start = 1;
+    for (i = 0; i < ST_cumu_list.length; i++) {
 
-        let range= new ST_range(start,Math.floor(ST_cumu_list[i]*multiplyST));
+        let range = new ST_range(start, Math.floor(ST_cumu_list[i] * multiplyST));
 
-        start=Math.floor(ST_cumu_list[i]*multiplyST)+1;
+        start = Math.floor(ST_cumu_list[i] * multiplyST) + 1;
 
         ST_range_list.push(range);
     }
@@ -614,13 +666,11 @@ function  ST_solver() {
     //
     // console.log(ST_cumu_list[0].toString().substring(0,7));
 
-    for (let i=0;i<maxST.value;i++){
-        generateRows(outputST_table_content,ST_list[i],ST_probability_list[i].toString().substring(0,7),ST_cumu_list[i].toString().substring(0,7),`${ST_range_list[i].start}-${ST_range_list[i].end}`);
+    for (let i = 0; i < maxST.value; i++) {
+        generateRows(outputST_table_content, ST_list[i], ST_probability_list[i].toString().substring(0, 7), ST_cumu_list[i].toString().substring(0, 7), `${ST_range_list[i].start}-${ST_range_list[i].end}`);
     }
 
 }
-
-
 
 
 function inputFieldGenerator(howMany, parent, type, placeholder, classArray) {
@@ -685,9 +735,9 @@ function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, Ge
 
         }, 3000);
         return false
-    }else if(manualProbabiityParent.checked && probabilityValidator(GeneratedFieldParent)!='one'){
+    } else if (manualProbabiityParent.checked && probabilityValidator(GeneratedFieldParent) != 'one') {
 
-        if(GeneratedFieldParent !=Simulation_Generated_Fields){
+        if (GeneratedFieldParent != Simulation_Generated_Fields) {
             messageShower(msgSpan, `Sum of probabilities must be 1, current: ${probabilityValidator(GeneratedFieldParent)}`);
             GeneratedFieldParent.style.transition = '0.2s';
             GeneratedFieldParent.style.backgroundColor = 'rgba(221,21,34,0.16)';
@@ -700,7 +750,7 @@ function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, Ge
             }, 3000);
 
             return false
-        }else{
+        } else {
             console.log('success')
         }
 
@@ -711,8 +761,8 @@ function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, Ge
 
 
 function probabilityValidator(parent) {
-    var isOne=0;
-    var tempProbabilites=[];
+    var isOne = 0;
+    var tempProbabilites = [];
     let child = parent.firstElementChild;
     for (let i = 1; i <= parent.childElementCount; i++) {
         if (child.value != "") {
@@ -720,39 +770,41 @@ function probabilityValidator(parent) {
         }
         child = child.nextElementSibling;
     }
-    for (let i=0;i<tempProbabilites.length;i++){
-        isOne=parseFloat(isOne)+parseFloat(tempProbabilites[i]);
+    for (let i = 0; i < tempProbabilites.length; i++) {
+        isOne = parseFloat(isOne) + parseFloat(tempProbabilites[i]);
     }
 
-    console.log(tempProbabilites);
-    if(isOne==1){
+
+    if (isOne === 1) {
         return 'one';
-    }else{
-        return isOne;
+    } else {
+        return parseFloat(isOne);
     }
 }
 
-function generateRows(parentTable, firstVal, secondVal, thirdVal, fourthVal) {
 
-        var row = document.createElement('tr');
 
-        let firstValContainer = document.createElement('td');
-        firstValContainer.innerHTML = firstVal;
-        row.appendChild(firstValContainer);
+function generateRows(firstVal, secondVal, thirdVal, fourthVal) {
 
-        let secondValContainer = document.createElement('td');
-        secondValContainer.innerHTML = secondVal;
-        row.appendChild(secondValContainer);
+    var row = document.createElement('tr');
 
-        let thirdValContainer = document.createElement('td');
-        thirdValContainer.innerHTML = thirdVal;
-        row.appendChild(thirdValContainer);
+    let firstValContainer = document.createElement('td');
+    firstValContainer.innerHTML = firstVal;
+    row.appendChild(firstValContainer);
 
-        let fourthValContainer = document.createElement('td');
-        fourthValContainer.innerHTML = fourthVal;
-        row.appendChild(fourthValContainer);
+    let secondValContainer = document.createElement('td');
+    secondValContainer.innerHTML = secondVal;
+    row.appendChild(secondValContainer);
 
-        parentTable.appendChild(row)
+    let thirdValContainer = document.createElement('td');
+    thirdValContainer.innerHTML = thirdVal;
+    row.appendChild(thirdValContainer);
+
+    let fourthValContainer = document.createElement('td');
+    fourthValContainer.innerHTML = fourthVal;
+    row.appendChild(fourthValContainer);
+
+    return row;
 }
 
 
