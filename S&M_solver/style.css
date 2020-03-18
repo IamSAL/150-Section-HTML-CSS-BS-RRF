@@ -601,7 +601,7 @@ table.dataTable {
 .input-label {
     margin-top: 3px;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 15px;
     line-height: 24px;
     letter-spacing: 0.11em;
     text-indent: 3px;
@@ -825,7 +825,7 @@ input::placeholder {
 
 .btn-simulation {
     box-shadow: -15px 15px 35px rgba(0, 0, 0, 0.15) !important;
-    margin: 10% auto auto 30% !important;
+    margin: 80% auto auto 30% !important;
     all: unset;
     font-weight: bold;
     font-size: 21px;
@@ -986,6 +986,24 @@ input::placeholder {
     margin-left: 3px;
     padding: 4px 5px;
 }
+.info-title-final:before{
+    font-size: 40px;
+    content: "3";
+    padding: 0% 1.5%;
+    transform: unset;
+    position: unset;
+    line-height: 70px;
+    text-align: center;
+}
+.info-title-final{
+    text-align: center;
+}
+
+.hr-final{
+    margin-left: 25%;
+
+}
+
 
 
 /*responsiveness SQCsolver page*/
@@ -1021,6 +1039,13 @@ input::placeholder {
     }
 
     .info-title:before {
+        padding: 0% 3%;
+        transform: unset;
+        position: unset;
+        font-size: 25px;
+    }
+
+    .info-title-final{
         padding: 0% 3%;
         transform: unset;
         position: unset;
@@ -1067,7 +1092,8 @@ input::placeholder {
     }
 
     .btn-simulation {
-        margin: 1% auto auto 35% !important;
+
+        margin: 5% auto auto 30% !important;
         height: 20%;
         padding: 20px 25px;
         font-size: 16px;

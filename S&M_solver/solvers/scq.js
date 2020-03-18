@@ -120,7 +120,18 @@ function childEventSetter(parent, func) {
     var GeneratedChild = parent.firstElementChild;
     for (i = 0; i < parent.childElementCount; i++) {
         GeneratedChild.addEventListener('input', function () {
+            if (this.value>1){
+                this.style.transition='0.2s';
+                this.style.backgroundColor='rgba(255,54,44,0.58)';
+                let that=this;
+                setTimeout(function () {
+                    that.style.backgroundColor='unset';
+                },500);
+                this.value='';
+
+            }
             func();
+
         });
         GeneratedChild = GeneratedChild.nextElementSibling;
     }
@@ -128,6 +139,13 @@ function childEventSetter(parent, func) {
 
 
 function probabilityChecker(Generated_Fields_parent, currentValueContainer, requiredValueContainer) {
+    var GeneratedChild = parent.firstElementChild;
+    for (i = 0; i < parent.childElementCount; i++) {
+        GeneratedChild.addEventListener('input', function () {
+            func();
+        });
+        GeneratedChild = GeneratedChild.nextElementSibling;
+    }
 
     if (probabilityValidator(Generated_Fields_parent) == 'one') {
         currentValueContainer.innerHTML = 1;
@@ -231,6 +249,7 @@ digitSTfield.addEventListener('blur', function (e) {
     digitSTsetter();
 })
 
+
 digitSTfield.addEventListener('mouseout', function (e) {
     e.preventDefault();
     digitSTsetter();
@@ -258,12 +277,12 @@ digitSTdisplay.innerHTML = digitST;
 document.getElementById("digitSTExample").innerHTML = '(100)';
 
 
-maxST.addEventListener('keydown', function () {
+maxST.addEventListener('input', function () {
 
 
     if (maxST.value.toString().length > 4) {
         if (maxST.value > 10000) {
-            messageShower('msgST', 'sorry,more than 10000 will hang up your pc!');
+            messageShower('msgST', 'Please open console to see faster output for larger value.');
             maxST.value = parseInt(maxST.value.toString().substring(0, 4));
             setTimeout(function () {
                 messageShower('msgST', 'open console to see output faster if value>5000');
@@ -283,28 +302,6 @@ maxST.addEventListener('keydown', function () {
 
 });
 
-
-maxST.addEventListener('keyup', function () {
-
-    if (maxST.value.toString().length > 4) {
-        if (maxST.value > 10000) {
-            messageShower('msgST', 'sorry,more than 10000 will hang up your pc!');
-            maxST.value = parseInt(maxST.value.toString().substring(0, 4));
-            setTimeout(function () {
-                messageShower('msgST', 'open console to see output faster if value>5000');
-            }, 2000)
-        }
-        maxST.value = parseInt(maxST.value.toString().substring(0, 5));
-    }
-
-    if (maxST.value == "") {
-        setTimeout(function () {
-            ST_validator();
-        }, 4000)
-    } else {
-        ST_validator();
-    }
-});
 
 maxST.addEventListener('blur', function () {
     ST_validator()
@@ -327,7 +324,7 @@ function ST_validator() {
             setTimeout(() => msgFieldST.style.visibility = 'hidden', 3000);
             maxST.focus();
         }
-        console.log(maxST.value);
+
         childrenDestroyer(ST_Generated_Fields);
         if (maxST.value != '0' && maxST.value != "") {
             ST_Generated_container.classList.remove('disabled');
@@ -390,8 +387,12 @@ generateST_btn.addEventListener('click', (e) => {
 //show or hide generated input fields of Simulation table generation(step#3)  based user choice
 const manual_Simulation_Randoms = document.querySelector('#manual_Simulation_Randoms');
 const auto_Simulation_Randoms = document.querySelector('#auto_Simulation_Randoms');
-const Simulation_Generated_container = document.querySelector('.Simulation_Generated_container')
-const Simulation_Generated_Fields = document.querySelector('#Simulation_Generated_Fields')
+const manual_Simulation_Randoms_Service = document.querySelector('#manual_Simulation_Randoms_Service');
+const auto_Simulation_Randoms_Service = document.querySelector('#auto_Simulation_Randoms_Service');
+const Simulation_Generated_container = document.querySelector('.Simulation_Generated_container');
+const Simulation_Generated_Fields = document.querySelector('#Simulation_Generated_Fields');
+const Simulation_Generated_container_service = document.querySelector('.Simulation_Generated_container_service');
+const Simulation_Generated_Fields_service = document.querySelector('#Simulation_Generated_Fields_service');
 var customerNum = document.querySelector('#customerNum');
 const msgFieldSimulation = document.querySelector('#msgSimulation');
 
@@ -400,7 +401,23 @@ customerNum.addEventListener('blur', function () {
     Simulation_validator();
 })
 
+customerNum.addEventListener('input', function () {
+
+    if (customerNum.value==""){
+        setTimeout(function () {
+            Simulation_validator();
+        },3500)
+    }else{
+        Simulation_validator();
+    }
+
+})
+
 manual_Simulation_Randoms.addEventListener('click', () => {
+    Simulation_validator();
+});
+
+manual_Simulation_Randoms_Service.addEventListener('click', () => {
     Simulation_validator();
 });
 
@@ -410,6 +427,14 @@ auto_Simulation_Randoms.addEventListener('click', () => {
     childrenDestroyer(Simulation_Generated_Fields)
 
 });
+
+
+auto_Simulation_Randoms_Service.addEventListener('click', () => {
+    Simulation_Generated_container_service.classList.add('disabled');
+    childrenDestroyer(Simulation_Generated_Fields_service)
+
+});
+
 
 
 function Simulation_validator() {
@@ -429,7 +454,7 @@ function Simulation_validator() {
             setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000)
             customerNum.focus();
         }
-        console.log(customerNum.value);
+
         childrenDestroyer(Simulation_Generated_Fields);
         if (customerNum.value != '0' && customerNum.value != "") {
             Simulation_Generated_container.classList.remove('disabled');
@@ -437,6 +462,31 @@ function Simulation_validator() {
 
         inputFieldGenerator(customerNum.value, Simulation_Generated_Fields, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms']);
     }
+
+  if (manual_Simulation_Randoms_Service.checked){
+
+      if (customerNum.value == "" || customerNum.value == '0') {
+          auto_Simulation_Randoms_Service.click();
+          if (customerNum.value == '0') {
+
+              msgFieldSimulation.innerHTML = 'There should be ateast 1 customer!'
+          } else if (customerNum.value == "") {
+
+              msgFieldSimulation.innerHTML = 'Please enter customer number first'
+          }
+
+          msgFieldSimulation.style.visibility = 'unset';
+          setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000)
+          customerNum.focus();
+      }
+
+      childrenDestroyer(Simulation_Generated_Fields_service);
+      if (customerNum.value != '0' && customerNum.value != "") {
+          Simulation_Generated_container_service.classList.remove('disabled');
+      }
+
+      inputFieldGenerator(customerNum.value, Simulation_Generated_Fields_service, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms_service']);
+  }
 }
 
 
@@ -445,7 +495,7 @@ const outputSimulation_table_content = document.querySelector("#outputSimulation
 
 generateSimulation_btn.addEventListener('click', (e) => {
     e.preventDefault();
-    if (inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms, Simulation_Generated_Fields)) {
+    if (inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms, Simulation_Generated_Fields)&&inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms_Service, Simulation_Generated_Fields_service)) {
         childrenDestroyer(outputSimulation_table_content);
         outputSimulation_table_content.parentElement.style.transition = '0.4s';
         outputSimulation_table_content.parentElement.style.backgroundColor = 'rgba(30,6,162,0.09)';
@@ -528,7 +578,7 @@ function TBA_solver() {
         }
 
     } else if (manual_TBA_Probability.checked) {
-        console.log('manual selected');
+
         let child = TBA_Generated_Fields.firstElementChild;
         for (let i = 1; i <= TBA_Generated_Fields.childElementCount; i++) {
             if (child.value != "") {
@@ -560,10 +610,10 @@ function TBA_solver() {
     // console.log(`TBA:${TBA_list} \n Probability:${TBA_probability_list} \n Manual probbs:${TBA_manual_probb_list} \n Cumulative Probability:${TBA_cumu_list}\n Random Range:${TBA_range_list}`)
     //
     // console.log(TBA_cumu_list[0].toString().substring(0, 7));
-    var tbl=document.createElement('table');
-    tbl.id='outputTBA_table';
-    tbl.classList.add('table','table-striped','table-bordered','table-hover','TBA-info-Table','TBA_output_table');
-    var thead=`<thead>
+    var tbl = document.createElement('table');
+    tbl.id = 'outputTBA_table';
+    tbl.classList.add('table', 'table-striped', 'table-bordered', 'table-hover', 'TBA-info-Table', 'TBA_output_table');
+    var thead = `<thead>
                                 <tr>
                                     <th>Time Between Arrival</th>
                                     <th>Probability</th>
@@ -572,14 +622,14 @@ function TBA_solver() {
                                 </tr>
                                 </thead>`;
 
-    tbl.innerHTML=thead;
+    tbl.innerHTML = thead;
 
-    var tbody=document.createElement('tbody');
+    var tbody = document.createElement('tbody');
     for (let i = 0; i < maxTBA.value; i++) {
         tbody.appendChild(generateRows(TBA_list[i], TBA_probability_list[i].toString().substring(0, 7), TBA_cumu_list[i].toString().substring(0, 7), `${TBA_range_list[i].start}-${TBA_range_list[i].end}`));
     }
     tbl.appendChild(tbody);
-    document.getElementById('tableContainerTBA').innerHTML=" ";
+    document.getElementById('tableContainerTBA').innerHTML = " ";
     document.getElementById('tableContainerTBA').appendChild(tbl);
 
 }
@@ -661,15 +711,27 @@ function ST_solver() {
 
         ST_range_list.push(range);
     }
+    var tbl = document.createElement('table');
+    tbl.id = 'SQC-ST-output-table';
+    tbl.classList.add('table', 'table-striped', 'table-bordered', 'table-hover', 'ST-info-Table', 'ST_output_table');
+    var thead = `<thead>
+                                <tr>
+                                    <th>Service Time</th>
+                                    <th>Probability</th>
+                                    <th>Cumulative Probability</th>
+                                    <th>Random Range</th>
+                                </tr>
+                                </thead>`;
 
-    // console.log(`TBA:${ST_list} \n Probability:${ST_probability_list} \n Manual probbs:${ST_manual_probb_list} \n Cumulative Probability:${ST_cumu_list}\n Random Range:${ST_range_list}`)
-    //
-    // console.log(ST_cumu_list[0].toString().substring(0,7));
+    tbl.innerHTML = thead;
 
+    var tbody = document.createElement('tbody');
     for (let i = 0; i < maxST.value; i++) {
-        generateRows(outputST_table_content, ST_list[i], ST_probability_list[i].toString().substring(0, 7), ST_cumu_list[i].toString().substring(0, 7), `${ST_range_list[i].start}-${ST_range_list[i].end}`);
+        tbody.appendChild(generateRows(ST_list[i], ST_probability_list[i].toString().substring(0, 7), ST_cumu_list[i].toString().substring(0, 7), `${ST_range_list[i].start}-${ST_range_list[i].end}`));
     }
-
+    tbl.appendChild(tbody);
+    document.getElementById('tableContainerST').innerHTML = " ";
+    document.getElementById('tableContainerST').appendChild(tbl);
 }
 
 
@@ -750,8 +812,6 @@ function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, Ge
             }, 3000);
 
             return false
-        } else {
-            console.log('success')
         }
 
     }
@@ -781,7 +841,6 @@ function probabilityValidator(parent) {
         return parseFloat(isOne);
     }
 }
-
 
 
 function generateRows(firstVal, secondVal, thirdVal, fourthVal) {
