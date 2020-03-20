@@ -120,14 +120,14 @@ function childEventSetter(parent, func) {
     var GeneratedChild = parent.firstElementChild;
     for (i = 0; i < parent.childElementCount; i++) {
         GeneratedChild.addEventListener('input', function () {
-            if (this.value>1){
-                this.style.transition='0.2s';
-                this.style.backgroundColor='rgba(255,54,44,0.58)';
-                let that=this;
+            if (this.value > 1) {
+                this.style.transition = '0.2s';
+                this.style.backgroundColor = 'rgba(255,54,44,0.58)';
+                let that = this;
                 setTimeout(function () {
-                    that.style.backgroundColor='unset';
-                },500);
-                this.value='';
+                    that.style.backgroundColor = 'unset';
+                }, 500);
+                this.value = '';
 
             }
             func();
@@ -206,20 +206,15 @@ generateTBA_btn.addEventListener('click', (e) => {
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
 
-        if ($.fn.dataTable.isDataTable('#outputTBA_table')) {
+        var TBA_table=$('#outputTBA_table').DataTable({
+            responsive: true,
+            searching:true,
+            paginate:false,
+            scrollY:300,
+            bInfo : false,
 
-            table = $('#outputTBA_table').DataTable();
-        } else {
-            table = $('#outputTBA_table').DataTable({
-                responsive: true,
-                pageLength: 5,
-                sort: false,
-                searching: false,
-                paginate: false,
-                scrollY: 300,
-                bInfo: false,
-            });
-        }
+        });
+        new $.fn.dataTable.FixedHeader(TBA_table);
     }
 });
 
@@ -366,20 +361,16 @@ generateST_btn.addEventListener('click', (e) => {
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
 
-        if ($.fn.dataTable.isDataTable('#SQC-ST-output-table')) {
+        var ST_table=$('#SQC-ST-output-table').DataTable({
+            responsive: true,
+            searching:true,
+            paginate:false,
+            scrollY:290,
+            bInfo : false,
 
-            table = $('#SQC-ST-output-table').DataTable();
-        } else {
-            table = $('#SQC-ST-output-table').DataTable({
-                responsive: true,
-                pageLength: 5,
-                sort: false,
-                searching: false,
-                paginate: false,
-                scrollY: 300,
-                bInfo: false,
-            });
-        }
+        });
+        new $.fn.dataTable.FixedHeader(ST_table);
+
     }
 });
 
@@ -403,11 +394,11 @@ customerNum.addEventListener('blur', function () {
 
 customerNum.addEventListener('input', function () {
 
-    if (customerNum.value==""){
+    if (customerNum.value == "") {
         setTimeout(function () {
             Simulation_validator();
-        },3500)
-    }else{
+        }, 3500)
+    } else {
         Simulation_validator();
     }
 
@@ -436,7 +427,6 @@ auto_Simulation_Randoms_Service.addEventListener('click', () => {
 });
 
 
-
 function Simulation_validator() {
     if (manual_Simulation_Randoms.checked) {
 
@@ -451,7 +441,7 @@ function Simulation_validator() {
             }
 
             msgFieldSimulation.style.visibility = 'unset';
-            setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000)
+            setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000);
             customerNum.focus();
         }
 
@@ -461,32 +451,33 @@ function Simulation_validator() {
         }
 
         inputFieldGenerator(customerNum.value, Simulation_Generated_Fields, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms']);
+        Simulation_Generated_Fields.firstElementChild.value=0;
     }
 
-  if (manual_Simulation_Randoms_Service.checked){
+    if (manual_Simulation_Randoms_Service.checked) {
 
-      if (customerNum.value == "" || customerNum.value == '0') {
-          auto_Simulation_Randoms_Service.click();
-          if (customerNum.value == '0') {
+        if (customerNum.value == "" || customerNum.value == '0') {
+            auto_Simulation_Randoms_Service.click();
+            if (customerNum.value == '0') {
 
-              msgFieldSimulation.innerHTML = 'There should be ateast 1 customer!'
-          } else if (customerNum.value == "") {
+                msgFieldSimulation.innerHTML = 'There should be ateast 1 customer!'
+            } else if (customerNum.value == "") {
 
-              msgFieldSimulation.innerHTML = 'Please enter customer number first'
-          }
+                msgFieldSimulation.innerHTML = 'Please enter customer number first'
+            }
 
-          msgFieldSimulation.style.visibility = 'unset';
-          setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000)
-          customerNum.focus();
-      }
+            msgFieldSimulation.style.visibility = 'unset';
+            setTimeout(() => msgFieldSimulation.style.visibility = 'hidden', 3000)
+            customerNum.focus();
+        }
 
-      childrenDestroyer(Simulation_Generated_Fields_service);
-      if (customerNum.value != '0' && customerNum.value != "") {
-          Simulation_Generated_container_service.classList.remove('disabled');
-      }
+        childrenDestroyer(Simulation_Generated_Fields_service);
+        if (customerNum.value != '0' && customerNum.value != "") {
+            Simulation_Generated_container_service.classList.remove('disabled');
+        }
 
-      inputFieldGenerator(customerNum.value, Simulation_Generated_Fields_service, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms_service']);
-  }
+        inputFieldGenerator(customerNum.value, Simulation_Generated_Fields_service, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms_service']);
+    }
 }
 
 
@@ -495,7 +486,7 @@ const outputSimulation_table_content = document.querySelector("#outputSimulation
 
 generateSimulation_btn.addEventListener('click', (e) => {
     e.preventDefault();
-    if (inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms, Simulation_Generated_Fields)&&inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms_Service, Simulation_Generated_Fields_service)) {
+    if (inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms, Simulation_Generated_Fields) && inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms_Service, Simulation_Generated_Fields_service)) {
         childrenDestroyer(outputSimulation_table_content);
         outputSimulation_table_content.parentElement.style.transition = '0.4s';
         outputSimulation_table_content.parentElement.style.backgroundColor = 'rgba(30,6,162,0.09)';
@@ -505,24 +496,34 @@ generateSimulation_btn.addEventListener('click', (e) => {
 
         }, 750);
 
-        generateSimulationRows(customerNum.value, outputSimulation_table_content, 'customer', 'tba', 'at', 'st', 'tsb', 'tcw', 'tce', 'tcs', 'is');
-
+        simulation_Solver();
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
+        var Simulation_table=$('#SQC-Simulation-output-table').DataTable({
+            responsive: true,
+            searching:true,
+            pageLength:25,
+            paginate:true,
+            scrollY:400,
+            scrollCollapse: true,
+            bInfo : true,
 
-        if ($.fn.dataTable.isDataTable('#SQC-Simulation-output-table')) {
+        });
+        new $.fn.dataTable.FixedHeader(Simulation_table);
 
-            table = $('#SQC-Simulation-output-table').DataTable();
-        } else {
-            table = $('#SQC-Simulation-output-table').DataTable({
-                responsive: true,
-                sort: false,
-                searching: false,
-                paginate: false,
-                scrollY: 450,
-                bInfo: false,
-            });
-        }
+        // if ($.fn.dataTable.isDataTable('#SQC-Simulation-output-table')) {
+        //
+        //     table = $('#SQC-Simulation-output-table').DataTable();
+        // } else {
+        //     table = $('#SQC-Simulation-output-table').DataTable({
+        //         responsive: true,
+        //         sort: false,
+        //         searching: false,
+        //         paginate: false,
+        //         scrollY: 450,
+        //         bInfo: false,
+        //     });
+        // }
     }
 });
 
@@ -542,7 +543,10 @@ function TBA_solver() {
 
 
     class TBA_range {
-        constructor(start, end) {
+        constructor(TBA,probability,cumulative_probability,start, end) {
+            this.TBA=TBA;
+            this.probability=probability;
+            this.cumulative_probability=cumulative_probability;
             this.start = start;
             this.end = end;
         }
@@ -600,12 +604,13 @@ function TBA_solver() {
     let start = 1;
     for (i = 0; i < TBA_cumu_list.length; i++) {
 
-        let range = new TBA_range(start, Math.floor(TBA_cumu_list[i] * multiplyTBA));
+        let range = new TBA_range(i+1,TBA_probability_list[i],TBA_cumu_list[i],start, Math.floor(TBA_cumu_list[i] * multiplyTBA));
 
         start = Math.floor(TBA_cumu_list[i] * multiplyTBA) + 1;
 
         TBA_range_list.push(range);
     }
+    console.table(TBA_range_list);
 
     // console.log(`TBA:${TBA_list} \n Probability:${TBA_probability_list} \n Manual probbs:${TBA_manual_probb_list} \n Cumulative Probability:${TBA_cumu_list}\n Random Range:${TBA_range_list}`)
     //
@@ -650,8 +655,11 @@ function ST_solver() {
 
 
     class ST_range {
-        constructor(start, end) {
-            this.start = start;
+        constructor(serviceTime,probability,cumulative_probability,start, end) {
+            this.serviceTime=serviceTime;
+            this.probability=probability;
+            this.cumulative_probability=cumulative_probability;
+            this.start=start;
             this.end = end;
         }
 
@@ -705,12 +713,13 @@ function ST_solver() {
     let start = 1;
     for (i = 0; i < ST_cumu_list.length; i++) {
 
-        let range = new ST_range(start, Math.floor(ST_cumu_list[i] * multiplyST));
+        let range = new ST_range(i+1,ST_probability_list[i],ST_cumu_list[i],start, Math.floor(ST_cumu_list[i] * multiplyST));
 
         start = Math.floor(ST_cumu_list[i] * multiplyST) + 1;
 
         ST_range_list.push(range);
     }
+    console.table(ST_range_list);
     var tbl = document.createElement('table');
     tbl.id = 'SQC-ST-output-table';
     tbl.classList.add('table', 'table-striped', 'table-bordered', 'table-hover', 'ST-info-Table', 'ST_output_table');
@@ -733,6 +742,219 @@ function ST_solver() {
     document.getElementById('tableContainerST').innerHTML = " ";
     document.getElementById('tableContainerST').appendChild(tbl);
 }
+
+
+
+
+var solved_customer_list=[];
+
+
+function simulation_Solver() {
+
+    class customer{
+        constructor(customerNo,time_between_arrival,arrival_time,service_time,time_service_begins,idle_system) {
+                this.customerNo=customerNo;
+                this.time_between_arrival=time_between_arrival;
+                this.arrival_time=arrival_time;
+                this.service_time=service_time;
+                this.time_service_begins=time_service_begins;
+                this.setTCW();
+                this.setTSE();
+                this.setTCS();
+                this.idle_system=idle_system;
+
+        }
+
+        setTCW(){
+            if (this.customerNo==1){
+                this.time_customer_waits=0;
+            }else{
+               this.time_customer_waits= this.time_service_begins-this.arrival_time;
+            }
+        }
+
+        setTSE(){
+            this.time_service_ends=this.time_service_begins+this.service_time;
+        }
+
+        setTCS(){
+            this.time_customer_spends=this.time_service_ends-this.arrival_time;
+        }
+    }
+
+    solved_customer_list=[];
+    let customer_list=[];
+    let random_list_tba=[];
+    let random_list_service=[];
+    let TBA_list=[];
+    let AT_list=[];
+    let service_list=[];
+    let maxRange_tba;
+
+    switch (parseInt(digitTBA)) {
+        case 3:
+            maxRange_tba=1000;
+            break;
+        case 4:
+            maxRange_tba=10000;
+            break;
+        case 5:
+            maxRange_tba=100000;
+            break;
+        case 6:
+            maxRange_tba=1000000;
+            break;
+        default:
+            maxRange_tba=1000;
+    }
+
+    let maxRange_service;
+    switch (parseInt(digitST)) {
+        case 2:
+            maxRange_service=100;
+            break;
+        case 3:
+            maxRange_service=1000;
+            break;
+        case 4:
+            maxRange_service=10000;
+            break;
+        case 5:
+            maxRange_service=100000;
+            break;
+        default:
+            maxRange_service=100;
+    }
+
+    for(let i=1;i<=customerNum.value;i++){
+        customer_list.push(i);
+    }
+
+    if (auto_Simulation_Randoms.checked){
+        for (let i=0;i<customer_list.length;i++){
+            if (i==0){
+                random_list_tba.push(0);
+            }else{
+                let tbaRandom=RandomValueByRange(1,maxRange_tba);
+                random_list_tba.push(tbaRandom);
+            }
+        }
+    }else if (manual_Simulation_Randoms.checked){
+        let child = Simulation_Generated_Fields.firstElementChild;
+        for (let i = 0; i < Simulation_Generated_Fields.childElementCount; i++) {
+            if (child.value != "") {
+                random_list_tba.push(parseFloat(child.value));
+            }
+            child = child.nextElementSibling;
+        }
+    }
+
+
+    if (auto_Simulation_Randoms_Service.checked){
+        for (let i=0;i<customer_list.length;i++){
+            let serviceRandom=RandomValueByRange(1,maxRange_service);
+            random_list_service.push(serviceRandom);
+        }
+    }else if (manual_Simulation_Randoms_Service.checked){
+        let child = Simulation_Generated_Fields_service.firstElementChild;
+        for (let i = 0; i < Simulation_Generated_Fields_service.childElementCount; i++) {
+            if (child.value != "") {
+                random_list_service.push(parseFloat(child.value));
+            }
+            child = child.nextElementSibling;
+        }
+    }
+
+
+    for (let i=0;i<customer_list.length;i++){
+            if (random_list_tba[i]==0){
+                TBA_list.push(0)
+            }else{
+                for (let j=0;j<TBA_range_list.length;j++){
+                    if (random_list_tba[i]>=TBA_range_list[j].start&&random_list_tba[i]<=TBA_range_list[j].end){
+                        TBA_list.push(TBA_range_list[j].TBA)
+                    }
+                }
+            }
+
+        for (let k=0;k<ST_range_list.length;k++){
+            if (random_list_service[i]>=ST_range_list[k].start&&random_list_service[i]<=ST_range_list[k].end){
+                service_list.push(ST_range_list[k].serviceTime)
+            }
+        }
+
+    }
+
+    let at = 0;
+    for (let i = 0; i < TBA_list.length; i++) {
+        at = at+ TBA_list[i];
+        AT_list.push(at);
+    }
+
+
+    for (let i=0;i<customerNum.value;i++){
+        if (i==0){
+            let cust=new customer(i+1,TBA_list[i],AT_list[i],service_list[i],AT_list[i],0);
+
+            solved_customer_list.push(cust);
+
+        }else{
+            let tsb=Math.max(solved_customer_list[i-1].time_service_ends,AT_list[i]);
+            let cust=new customer(i+1,TBA_list[i],AT_list[i],service_list[i],tsb,tsb-solved_customer_list[i-1].time_service_ends);
+
+           solved_customer_list.push(cust);
+        }
+
+
+    }
+
+
+    var tbl = document.createElement('table');
+    tbl.id = 'SQC-Simulation-output-table';
+    tbl.classList.add('SQC-Simulation-output-table', 'table', 'table-striped', 'table-bordered', 'table-hover', 'Simulation-info-Table', 'Simulation_output_table');
+    var thead = `<thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>TBA</th>
+                                <th>AT</th>
+                                <th>ST</th>
+                                <th>TSB</th>
+                                <th>TCW</th>
+                                <th>TSE</th>
+                                <th>TCS</th>
+                                <th>IS</th>
+                            </tr>
+                            </thead>`;
+
+    tbl.innerHTML = thead;
+
+    var tbody = document.createElement('tbody');
+    for (let i = 0; i < customerNum.value; i++) {
+        if (solved_customer_list[i].time_between_arrival==0){
+            tbody.appendChild(generateSimulationRows(solved_customer_list[i].customerNo,'-',solved_customer_list[i].arrival_time,solved_customer_list[i].service_time,solved_customer_list[i].time_service_begins,solved_customer_list[i].time_customer_waits,solved_customer_list[i].time_service_ends,solved_customer_list[i].time_customer_spends,solved_customer_list[i].idle_system));
+        }else{
+            tbody.appendChild(generateSimulationRows(solved_customer_list[i].customerNo,solved_customer_list[i].time_between_arrival,solved_customer_list[i].arrival_time,solved_customer_list[i].service_time,solved_customer_list[i].time_service_begins,solved_customer_list[i].time_customer_waits,solved_customer_list[i].time_service_ends,solved_customer_list[i].time_customer_spends,solved_customer_list[i].idle_system));
+        }
+
+    }
+    tbl.appendChild(tbody);
+    document.getElementById('tableContainerSimulation').innerHTML = " ";
+    document.getElementById('tableContainerSimulation').appendChild(tbl);
+
+
+
+
+
+   console.table(solved_customer_list);
+
+
+
+
+}
+const RandomValueByRange=(Min,Max)=>randomValue=Math.floor(Math.random()*(Max-Min+1))+Min;
+// simulation_Solver();
+
+
 
 
 function inputFieldGenerator(howMany, parent, type, placeholder, classArray) {
@@ -867,47 +1089,47 @@ function generateRows(firstVal, secondVal, thirdVal, fourthVal) {
 }
 
 
-function generateSimulationRows(maxVal, parentTable, customer, TBA, AT, ST, TSB, TCW, TSE, TCS, IS) {
-    for (let i = 1; i <= maxVal; i++) {
+function generateSimulationRows(customer, TBA, AT, ST, TSB, TCW, TSE, TCS, IS) {
+
 
         var row = document.createElement('tr');
 
         let customerContainer = document.createElement('td');
-        customerContainer.innerHTML = `${customer}_${i}`;
+        customerContainer.innerHTML = customer;
         row.appendChild(customerContainer);
 
         let TBAContainer = document.createElement('td');
-        TBAContainer.innerHTML = `${TBA}_${i}`;
+        TBAContainer.innerHTML = TBA;
         row.appendChild(TBAContainer);
 
         let atContainer = document.createElement('td');
-        atContainer.innerHTML = `${AT}_${i}`;
+        atContainer.innerHTML =AT;
         row.appendChild(atContainer);
 
         let stContainer = document.createElement('td');
-        stContainer.innerHTML = `${ST}_${i}`;
+        stContainer.innerHTML = ST;
         row.appendChild(stContainer);
 
         let tsbContainer = document.createElement('td');
-        tsbContainer.innerHTML = `${TSB}_${i}`;
+        tsbContainer.innerHTML = TSB;
         row.appendChild(tsbContainer);
 
         let tcwContainer = document.createElement('td');
-        tcwContainer.innerHTML = `${TCW}_${i}`;
+        tcwContainer.innerHTML = TCW;
         row.appendChild(tcwContainer);
 
         let tseContainer = document.createElement('td');
-        tseContainer.innerHTML = `${TSE}_${i}`;
+        tseContainer.innerHTML = TSE;
         row.appendChild(tseContainer);
 
         let tcsContainer = document.createElement('td');
-        tcsContainer.innerHTML = `${TCS}_${i}`;
+        tcsContainer.innerHTML = TCS;
         row.appendChild(tcsContainer);
 
         let isContainer = document.createElement('td');
-        isContainer.innerHTML = `${IS}_${i}`;
+        isContainer.innerHTML = IS;
         row.appendChild(isContainer);
 
-        parentTable.appendChild(row)
-    }
+        return row;
+
 }

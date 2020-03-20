@@ -80,7 +80,9 @@ img {
 a, a:hover, a:visited, a:focus {
     text-decoration: none !important;
 }
-
+td {
+    text-align: center;
+}
 /*top-header*/
 
 .header {
@@ -601,9 +603,9 @@ table.dataTable {
 .input-label {
     margin-top: 3px;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 24px;
-    letter-spacing: 0.11em;
+
     text-indent: 3px;
     text-align: left;
     /* margin-right: 27px; */
@@ -825,7 +827,7 @@ input::placeholder {
 
 .btn-simulation {
     box-shadow: -15px 15px 35px rgba(0, 0, 0, 0.15) !important;
-    margin: 80% auto auto 30% !important;
+    margin: 140% auto auto 30% !important;
     all: unset;
     font-weight: bold;
     font-size: 21px;
@@ -933,7 +935,7 @@ input::placeholder {
     text-align: center;
 }
 
-#TBA_Generated_Fields,#ST_Generated_Fields,#Simulation_Generated_Fields{
+#TBA_Generated_Fields,#ST_Generated_Fields,#Simulation_Generated_Fields,#Simulation_Generated_Fields_service{
     max-height: 350px;
     overflow-y: auto;
     overflow-x: hidden;
