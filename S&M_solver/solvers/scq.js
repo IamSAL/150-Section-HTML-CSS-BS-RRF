@@ -1,4 +1,5 @@
 // show or hide generated input fields of TBA table generation(step#1)  based user choice
+
 const manual_TBA_Probability = document.querySelector('#manual_TBA_Probability');
 const auto_TBA_Probability = document.querySelector('#auto_TBA_Probability');
 const TBA_Generated_container = document.querySelector('.TBA_Generated_container');
@@ -139,13 +140,7 @@ function childEventSetter(parent, func) {
 
 
 function probabilityChecker(Generated_Fields_parent, currentValueContainer, requiredValueContainer) {
-    var GeneratedChild = parent.firstElementChild;
-    for (i = 0; i < parent.childElementCount; i++) {
-        GeneratedChild.addEventListener('input', function () {
-            func();
-        });
-        GeneratedChild = GeneratedChild.nextElementSibling;
-    }
+
 
     if (probabilityValidator(Generated_Fields_parent) == 'one') {
         currentValueContainer.innerHTML = 1;
@@ -189,19 +184,14 @@ generateTBA_btn.addEventListener('click', (e) => {
     if (inputValidation(maxTBA, 'msgTBA', 'Empty Field: maxTBA not given ', manual_TBA_Probability, TBA_Generated_Fields)) {
 
         childrenDestroyer(outputTBA_table_content);
-        outputTBA_table_content.parentElement.style.transition = '0.4s';
-        outputTBA_table_content.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
-        outputTBA_table_content.parentElement.style.backgroundColor = 'rgba(30,6,162,0.09)';
-        setTimeout(function () {
-            document.querySelector('.TBA_output_table').style.setProperty('background-color', 'unset', 'important');
-            outputTBA_table_content.parentElement.style.setProperty('background-color', 'unset', 'important');
 
-        }, 750);
 
         //Here we GO!!
 
 
         TBA_solver();
+
+
 
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
@@ -215,6 +205,8 @@ generateTBA_btn.addEventListener('click', (e) => {
 
         });
         new $.fn.dataTable.FixedHeader(TBA_table);
+
+
     }
 });
 
@@ -347,15 +339,6 @@ generateST_btn.addEventListener('click', (e) => {
     }
     if (inputValidation(maxST, 'msgST', 'Empty Field: maxST not given ', manual_ST_Probability, ST_Generated_Fields)) {
         childrenDestroyer(outputST_table_content);
-        outputST_table_content.parentElement.style.transition = '0.4s';
-        outputST_table_content.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
-        outputST_table_content.parentElement.style.backgroundColor = 'rgba(30,6,162,0.09)';
-        setTimeout(function () {
-            document.querySelector('.ST_output_table').style.setProperty('background-color', 'unset', 'important');
-            outputST_table_content.parentElement.style.setProperty('background-color', 'unset', 'important');
-
-        }, 750);
-
 
         ST_solver();
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
@@ -452,6 +435,8 @@ function Simulation_validator() {
 
         inputFieldGenerator(customerNum.value, Simulation_Generated_Fields, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms']);
         Simulation_Generated_Fields.firstElementChild.value=0;
+
+        childEventSetterSimulation(Simulation_Generated_Fields)
     }
 
     if (manual_Simulation_Randoms_Service.checked) {
@@ -477,6 +462,7 @@ function Simulation_validator() {
         }
 
         inputFieldGenerator(customerNum.value, Simulation_Generated_Fields_service, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms_service']);
+        childEventSetterSimulation(Simulation_Generated_Fields_service);
     }
 }
 
@@ -486,17 +472,15 @@ const outputSimulation_table_content = document.querySelector("#outputSimulation
 
 generateSimulation_btn.addEventListener('click', (e) => {
     e.preventDefault();
+    if (ST_solved===true&&TBA_solved===true){
+
     if (inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms, Simulation_Generated_Fields) && inputValidation(customerNum, 'msgSimulation', 'Empty Field: Customer Number not given ', manual_Simulation_Randoms_Service, Simulation_Generated_Fields_service)) {
         childrenDestroyer(outputSimulation_table_content);
-        outputSimulation_table_content.parentElement.style.transition = '0.4s';
-        outputSimulation_table_content.parentElement.style.backgroundColor = 'rgba(30,6,162,0.09)';
-        setTimeout(function () {
-            document.querySelector('.Simulation_output_table').style.setProperty('background-color', 'unset', 'important');
-            outputSimulation_table_content.parentElement.style.setProperty('background-color', 'unset', 'important');
 
-        }, 750);
 
         simulation_Solver();
+
+
         // outputTBA_table_content.parentElement.classList.add('table-responsive-sm');
 
         var Simulation_table=$('#SQC-Simulation-output-table').DataTable({
@@ -524,6 +508,12 @@ generateSimulation_btn.addEventListener('click', (e) => {
         //         bInfo: false,
         //     });
         // }
+    }}else if (ST_solved===false&&TBA_solved===true){
+        messageShower('msgST','Please Solve Service Table first')
+    }else if (ST_solved===true&&TBA_solved===false){
+        messageShower('msgTBA','Please Solve TBA table first')
+    }else{
+        messageShower('msgTBA','Please Solve TBA table first')
     }
 });
 
@@ -532,7 +522,7 @@ generateSimulation_btn.addEventListener('click', (e) => {
 
 //TBA solver
 var TBA_range_list = [];
-
+var TBA_solved=false;
 function TBA_solver() {
 
     var TBA_list = [];
@@ -636,7 +626,15 @@ function TBA_solver() {
     tbl.appendChild(tbody);
     document.getElementById('tableContainerTBA').innerHTML = " ";
     document.getElementById('tableContainerTBA').appendChild(tbl);
-
+    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
+    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    setTimeout(function () {
+        tbl.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.transition = 'unset';
+    }, 500);
+    TBA_solved=true;
 }
 
 
@@ -644,7 +642,7 @@ function TBA_solver() {
 
 
 var ST_range_list = [];
-
+var ST_solved=false;
 function ST_solver() {
 
     var ST_list = [];
@@ -741,6 +739,16 @@ function ST_solver() {
     tbl.appendChild(tbody);
     document.getElementById('tableContainerST').innerHTML = " ";
     document.getElementById('tableContainerST').appendChild(tbl);
+    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
+    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    setTimeout(function () {
+        tbl.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.transition = 'unset';
+
+    }, 500);
+    ST_solved=true;
 }
 
 
@@ -940,10 +948,15 @@ function simulation_Solver() {
     tbl.appendChild(tbody);
     document.getElementById('tableContainerSimulation').innerHTML = " ";
     document.getElementById('tableContainerSimulation').appendChild(tbl);
+    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
+    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    setTimeout(function () {
+        tbl.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
+        tbody.parentElement.style.transition = 'unset';
 
-
-
-
+    }, 500);
 
    console.table(solved_customer_list);
 
@@ -955,6 +968,96 @@ const RandomValueByRange=(Min,Max)=>randomValue=Math.floor(Math.random()*(Max-Mi
 // simulation_Solver();
 
 
+function childEventSetterSimulation(parent) {
+
+    var GeneratedChild = parent.firstElementChild;
+    for (i = 0; i < parent.childElementCount; i++) {
+        GeneratedChild.addEventListener('input', function () {
+            let maxRange_tbaField;
+
+            switch (parseInt(digitTBA)) {
+                case 3:
+                    maxRange_tbaField=1000;
+                    break;
+                case 4:
+                    maxRange_tbaField=10000;
+                    break;
+                case 5:
+                    maxRange_tbaField=100000;
+                    break;
+                case 6:
+                    maxRange_tbaField=1000000;
+                    break;
+                default:
+                    maxRange_tbaField=1000;
+            }
+
+            let maxRange_serviceField;
+            switch (parseInt(digitST)) {
+                case 2:
+                    maxRange_serviceField=100;
+                    break;
+                case 3:
+                    maxRange_serviceField=1000;
+                    break;
+                case 4:
+                    maxRange_serviceField=10000;
+                    break;
+                case 5:
+                    maxRange_serviceField=100000;
+                    break;
+                default:
+                    maxRange_serviceField=100;
+            }
+
+
+            if (parent==Simulation_Generated_Fields){
+                if (this.value > maxRange_tbaField) {
+                    this.style.transition = '0.2s';
+                    this.style.backgroundColor = 'rgba(255,54,44,0.58)';
+                    let that = this;
+                    setTimeout(function () {
+                        that.style.backgroundColor = 'unset';
+                    }, 500);
+                    this.value = '';
+                    document.getElementById('digitMessageSimulation').innerHTML=`<span style="color: #FF362C">You selected Max Range: ${maxRange_tbaField} !</span>`;
+                    setTimeout( function () {
+                        document.getElementById('digitMessageSimulation').innerHTML=`Range: 1 - ${maxRange_tbaField}`
+                    },1500);
+
+                    setTimeout( function () {
+                        document.getElementById('digitMessageSimulation').innerHTML=`Enter Random values for TBA`;
+                    },10000);
+
+
+
+                }
+            }
+            if (parent==Simulation_Generated_Fields_service){
+                if (this.value > maxRange_serviceField) {
+                    document.getElementById('digitMessageSimulation_service').innerHTML=`<span style="color: #FF362C">You selected Max Range: ${maxRange_serviceField} !</span>`;
+                    setTimeout( function () {
+                        document.getElementById('digitMessageSimulation_service').innerHTML=`Range: 1 - ${maxRange_serviceField}`
+                    },1500);
+                    setTimeout( function () {
+                        document.getElementById('digitMessageSimulation_service').innerHTML=`Enter Random values for Service Time`;
+                    },10000);
+
+                    this.style.transition = '0.2s';
+                    this.style.backgroundColor = 'rgba(255,54,44,0.58)';
+                    let that = this;
+                    setTimeout(function () {
+                        that.style.backgroundColor = 'unset';
+                    }, 500);
+                    this.value = '';
+
+                }
+            }
+
+        });
+        GeneratedChild = GeneratedChild.nextElementSibling;
+    }
+}
 
 
 function inputFieldGenerator(howMany, parent, type, placeholder, classArray) {
@@ -1021,7 +1124,7 @@ function inputValidation(maxVal, msgSpan, msgContent, manualProbabiityParent, Ge
         return false
     } else if (manualProbabiityParent.checked && probabilityValidator(GeneratedFieldParent) != 'one') {
 
-        if (GeneratedFieldParent != Simulation_Generated_Fields) {
+        if (GeneratedFieldParent != Simulation_Generated_Fields && GeneratedFieldParent != Simulation_Generated_Fields_service) {
             messageShower(msgSpan, `Sum of probabilities must be 1, current: ${probabilityValidator(GeneratedFieldParent)}`);
             GeneratedFieldParent.style.transition = '0.2s';
             GeneratedFieldParent.style.backgroundColor = 'rgba(221,21,34,0.16)';
