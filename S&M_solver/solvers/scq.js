@@ -1,4 +1,7 @@
 // show or hide generated input fields of TBA table generation(step#1)  based user choice
+//test pull from old directory
+const testpull=[];
+console.log(testpull);
 const manual_TBA_Probability = document.querySelector('#manual_TBA_Probability');
 const auto_TBA_Probability = document.querySelector('#auto_TBA_Probability');
 const TBA_Generated_container = document.querySelector('.TBA_Generated_container');

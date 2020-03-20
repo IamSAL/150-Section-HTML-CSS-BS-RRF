@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //test pull from old directory
 // var TBA_table=$('#outputTBA_table').DataTable({
 //     responsive: true,
 //     pageLength:5,
