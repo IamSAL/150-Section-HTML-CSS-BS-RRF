@@ -92,6 +92,8 @@ td {
     z-index: 99999;
 }
 
+.dataTables_scrollBody {height: fit-content !important;max-height: 300px;}
+
 .menu-items ul {
     float: right;
     display: flex;
