@@ -767,39 +767,6 @@ content goes here:
                                 <td>NA</td>
                                 <td>NA</td>
                             </tr>
-                            <tr>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                            </tr>
-                            <tr>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                            </tr>
-                            <tr>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                                <td>NA</td>
-                            </tr>
 
 
                             </tbody>
@@ -826,7 +793,7 @@ content goes here:
                             </div>
                             <div class="col-md-3 card-value">
                                 <!--Card Output:average waiting time-->
-                                <h3><span>2.8</span></h3>
+                                <h3><span id="avg_waiting_time" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -839,8 +806,8 @@ content goes here:
                                 <h4><span>Average</span>Service <br> Time</h4>
                             </div>
                             <div class="col-md-4 card-value">
-                                <!--Card output:average waiting time-->
-                                <h3><span>3.4</span></h3>
+                                <!--Card output:average service time-->
+                                <h3><span id="avg_service_time" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -854,7 +821,7 @@ content goes here:
                             </div>
                             <div class="col-md-4 card-value">
                                 <!--Card output:average Time Between Arrivals-->
-                                <h3><span>4.3</span></h3>
+                                <h3><span id="avg_tba" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -864,11 +831,11 @@ content goes here:
                     <div class="single-output-card">
                         <div class="row">
                             <div class="col-md-7 output-card-title">
-                                <h4><span>Average</span>Time user Spends in System</h4>
+                                <h4 style="font-size: 17px"><span>Average</span>Time Customer Spends</h4>
                             </div>
                             <div class="col-md-3 card-value">
                                 <!--Card output:average Time User Spends in System-->
-                                <h3><span>6.2</span></h3>
+                                <h3><span id="avg_tcs" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -882,7 +849,7 @@ content goes here:
                             </div>
                             <div class="col-md-4 card-value">
                                 <!--Card output:Probability of waiting in Queue-->
-                                <h3><span>0.65</span></h3>
+                                <h3><span id="probability_tcw" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -896,7 +863,7 @@ content goes here:
                             </div>
                             <div class="col-md-4 card-value">
                                 <!--Card Output:Average Waiting Time of Those Who wait-->
-                                <h3><span>4.3</span></h3>
+                                <h3><span id="avg_waiting_of_who_waits" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -910,7 +877,7 @@ content goes here:
                             </div>
                             <div class="col-md-3 card-value">
                                 <!--Card Output:Probability of Server Being Busy-->
-                                <h3><span>0.79</span></h3>
+                                <h3><span id="probability_of_busy_server" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -924,7 +891,7 @@ content goes here:
                             </div>
                             <div class="col-md-4 card-value">
                                 <!--Card Output:Probability of Server Being Idle-->
-                                <h3><span>0.21</span></h3>
+                                <h3><span id="probability_of_idle_server" class="count">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -938,7 +905,7 @@ content goes here:
                             </div>
                             <div class="col-md-5 card-value">
                                 <!--Card Output:The Time I took to Solve This Math!-->
-                                <h3><span>2.05</span></h3>
+                                <h3><span id="time_to_execute" class=" ">N/A</span></h3>
                             </div>
                         </div>
                     </div>
@@ -969,9 +936,7 @@ Footer goes here:
 
 
 <!--JQuery-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="../../imports/js/jquery.js"></script>
 <script src="../../imports/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.17/js/dataTables.bootstrap4.min.js"></script>

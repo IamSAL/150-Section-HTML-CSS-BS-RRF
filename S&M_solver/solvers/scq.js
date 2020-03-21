@@ -198,14 +198,13 @@ generateTBA_btn.addEventListener('click', (e) => {
 
         var TBA_table=$('#outputTBA_table').DataTable({
             responsive: true,
-            searching:true,
+            searching:false,
             paginate:false,
             scrollY:300,
             bInfo : false,
 
         });
         new $.fn.dataTable.FixedHeader(TBA_table);
-
 
     }
 });
@@ -333,6 +332,8 @@ const generateST_btn = document.querySelector("#generateST_btn");
 const outputST_table_content = document.querySelector("#outputST_table_content");
 
 generateST_btn.addEventListener('click', (e) => {
+
+
     e.preventDefault();
     if (maxST.value > 3000) {
         messageShower('msgTBA', 'Loading.....')
@@ -346,7 +347,7 @@ generateST_btn.addEventListener('click', (e) => {
 
         var ST_table=$('#SQC-ST-output-table').DataTable({
             responsive: true,
-            searching:true,
+            searching:false,
             paginate:false,
             scrollY:290,
             bInfo : false,
@@ -371,18 +372,21 @@ var customerNum = document.querySelector('#customerNum');
 const msgFieldSimulation = document.querySelector('#msgSimulation');
 
 
-customerNum.addEventListener('blur', function () {
-    Simulation_validator();
-})
+// customerNum.addEventListener('blur', function () {
+//     Simulation_validator();
+//     Simulation_validator_service();
+// })
 
 customerNum.addEventListener('input', function () {
 
     if (customerNum.value == "") {
         setTimeout(function () {
             Simulation_validator();
+            Simulation_validator_service();
         }, 3500)
     } else {
         Simulation_validator();
+        Simulation_validator_service();
     }
 
 })
@@ -392,7 +396,7 @@ manual_Simulation_Randoms.addEventListener('click', () => {
 });
 
 manual_Simulation_Randoms_Service.addEventListener('click', () => {
-    Simulation_validator();
+    Simulation_validator_service();
 });
 
 
@@ -434,10 +438,17 @@ function Simulation_validator() {
         }
 
         inputFieldGenerator(customerNum.value, Simulation_Generated_Fields, 'number', 'cus ', ['input-field-generated', 'p-2', 'm-2', 'simulation_Randoms']);
-        Simulation_Generated_Fields.firstElementChild.value=0;
+        if (Simulation_Generated_Fields.firstElementChild!=null){
+            Simulation_Generated_Fields.firstElementChild.value=0;
+        }
+
 
         childEventSetterSimulation(Simulation_Generated_Fields)
     }
+
+}
+
+function Simulation_validator_service(){
 
     if (manual_Simulation_Randoms_Service.checked) {
 
@@ -626,14 +637,14 @@ function TBA_solver() {
     tbl.appendChild(tbody);
     document.getElementById('tableContainerTBA').innerHTML = " ";
     document.getElementById('tableContainerTBA').appendChild(tbl);
-    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.transition = '0.4s';
     tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
-    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    tbody.style.backgroundColor = 'rgba(17,213,141,0.55)';
     setTimeout(function () {
         tbl.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.transition = 'unset';
+        tbody.style.setProperty('background-color', 'unset', 'important');
     }, 500);
+
     TBA_solved=true;
 }
 
@@ -739,13 +750,12 @@ function ST_solver() {
     tbl.appendChild(tbody);
     document.getElementById('tableContainerST').innerHTML = " ";
     document.getElementById('tableContainerST').appendChild(tbl);
-    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.transition = '0.4s';
     tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
-    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    tbody.style.backgroundColor = 'rgba(17,213,141,0.55)';
     setTimeout(function () {
         tbl.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.transition = 'unset';
+        tbody.style.setProperty('background-color', 'unset', 'important');
 
     }, 500);
     ST_solved=true;
@@ -758,7 +768,7 @@ var solved_customer_list=[];
 
 
 function simulation_Solver() {
-
+   var begin=Date.now();
     class customer{
         constructor(customerNo,time_between_arrival,arrival_time,service_time,time_service_begins,idle_system) {
                 this.customerNo=customerNo;
@@ -797,6 +807,22 @@ function simulation_Solver() {
     let TBA_list=[];
     let AT_list=[];
     let service_list=[];
+
+    let avg_waiting=0;
+    let avg_service=0;
+    let avg_tba=0;
+    let avg_tcs=0;
+    let probability_tcw=0;
+    let avg_those_waits=0;
+    let busy_server=0;
+    let idle_server=0;
+    let took_time=0;
+
+
+
+
+
+
     let maxRange_tba;
 
     switch (parseInt(digitTBA)) {
@@ -945,18 +971,126 @@ function simulation_Solver() {
         }
 
     }
+
+
+    setTimeout(function () {
+
+        if (window.innerWidth/window.innerHeight==1366/667){
+            window.scrollTo(0, 4550);
+        }else{
+            document.getElementById('tableContainerSimulation').scrollIntoView();
+        }
+        $('.tableCount').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 3000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(parseInt(now));
+                }
+            });
+        });
+
+    },0);
+
     tbl.appendChild(tbody);
     document.getElementById('tableContainerSimulation').innerHTML = " ";
     document.getElementById('tableContainerSimulation').appendChild(tbl);
-    tbody.parentElement.style.transition = '0.4s';
+    tbody.style.transition = '0.3s';
     tbody.style.boxShadow = '-15px 15px 35px rgba(157, 218, 253, 0.12)';
-    tbody.parentElement.style.backgroundColor = 'rgba(40,182,213,0.5)';
+    tbody.style.backgroundColor = 'rgba(17,213,141,0.55)';
     setTimeout(function () {
         tbl.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.setProperty('background-color', 'unset', 'important');
-        tbody.parentElement.style.transition = 'unset';
+        tbody.style.setProperty('background-color', 'unset', 'important');
 
     }, 500);
+
+    let wait_total=0;
+    let total_service=0;
+    let total_tcs=0
+    let who_waits=0;
+    let total_idle_time=0;
+    for (let i=0;i<solved_customer_list.length;i++){
+        wait_total=wait_total+solved_customer_list[i].time_customer_waits;
+        total_idle_time=total_idle_time+solved_customer_list[i].idle_system;
+        total_service=total_service+solved_customer_list[i].service_time;
+        total_tcs=total_tcs+solved_customer_list[i].time_customer_spends;
+        if (solved_customer_list[i].time_customer_waits!=0){
+            who_waits++;
+        }
+    }
+
+
+    setTimeout(function () {
+
+        if (window.innerWidth/window.innerHeight==1366/667){
+            window.scrollTo(0, 5150);
+        }else{
+            document.querySelector('.output-cards-container').scrollIntoView();
+        }
+
+        $('.count').each(function () {
+            $(this).prop('Counter',0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(parseFloat(now).toFixed(2));
+                }
+            });
+        });
+
+
+    },4000);
+
+    avg_waiting=wait_total/solved_customer_list.length;
+    avg_waiting_time.innerHTML=parseFloat(avg_waiting).toFixed(2).toString().substring(0,5);
+    avg_waiting_time.style.opacity='unset';
+    avg_service=total_service/solved_customer_list.length;
+    avg_service_time.innerHTML=parseFloat(avg_service).toFixed(2).toString().substring(0,5);
+    avg_service_time.style.opacity='unset';
+    avg_tba=solved_customer_list[solved_customer_list.length-1].arrival_time/(solved_customer_list.length-1);
+
+    avg_tba_field.innerHTML=parseFloat(avg_tba).toFixed(2).toString().substring(0,5);
+    avg_tba_field.style.opacity='unset';
+    if (who_waits>0){
+        avg_those_waits=wait_total/who_waits;
+    }else{
+        avg_those_waits=0;
+    }
+    avg_waiting_of_who_waits.innerHTML=parseFloat(avg_those_waits).toFixed(2).toString().substring(0,5);
+    avg_waiting_of_who_waits.style.opacity='unset';
+    avg_tcs=total_tcs/solved_customer_list.length;
+    avg_tcs_field.innerHTML=parseFloat(avg_tcs).toFixed(2).toString().substring(0,5);
+    avg_tcs_field.style.opacity='unset';
+    probability_tcw=who_waits/solved_customer_list.length;
+    probability_tcw_field.innerHTML=parseFloat(probability_tcw).toFixed(2).toString().substring(0,5);
+    probability_tcw_field.style.opacity='unset';
+    idle_server=total_idle_time/solved_customer_list[solved_customer_list.length-1].time_service_ends;
+    probability_of_idle_server.innerHTML=parseFloat(idle_server).toFixed(2).toString().substring(0,5);
+    probability_of_idle_server.style.opacity='unset';
+    busy_server=1-idle_server;
+    probability_of_busy_server.innerHTML=parseFloat(busy_server).toFixed(2).toString().substring(0,5);
+    probability_of_busy_server.style.opacity='unset';
+
+    var end=Date.now();
+    took_time=(end-begin)/1000+'s';
+    time_to_execute.innerHTML=took_time.substring(0,6);
+    time_to_execute.style.opacity='unset';
+
+
+
+
+
+
+
+
+
+
+
+
 
    console.table(solved_customer_list);
 
@@ -964,6 +1098,26 @@ function simulation_Solver() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const RandomValueByRange=(Min,Max)=>randomValue=Math.floor(Math.random()*(Max-Min+1))+Min;
 // simulation_Solver();
 
@@ -1206,6 +1360,7 @@ function generateSimulationRows(customer, TBA, AT, ST, TSB, TCW, TSE, TCS, IS) {
         row.appendChild(TBAContainer);
 
         let atContainer = document.createElement('td');
+        atContainer.classList.add('tableCount');
         atContainer.innerHTML =AT;
         row.appendChild(atContainer);
 
@@ -1214,25 +1369,38 @@ function generateSimulationRows(customer, TBA, AT, ST, TSB, TCW, TSE, TCS, IS) {
         row.appendChild(stContainer);
 
         let tsbContainer = document.createElement('td');
+        tsbContainer.classList.add('tableCount');
         tsbContainer.innerHTML = TSB;
         row.appendChild(tsbContainer);
 
         let tcwContainer = document.createElement('td');
+        tcwContainer.classList.add('tableCount');
         tcwContainer.innerHTML = TCW;
         row.appendChild(tcwContainer);
 
         let tseContainer = document.createElement('td');
+        tseContainer.classList.add('tableCount');
         tseContainer.innerHTML = TSE;
         row.appendChild(tseContainer);
 
         let tcsContainer = document.createElement('td');
+        tcsContainer.classList.add('tableCount');
         tcsContainer.innerHTML = TCS;
         row.appendChild(tcsContainer);
 
         let isContainer = document.createElement('td');
+        isContainer.classList.add('tableCount');
         isContainer.innerHTML = IS;
         row.appendChild(isContainer);
 
         return row;
 
+}
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
 }
