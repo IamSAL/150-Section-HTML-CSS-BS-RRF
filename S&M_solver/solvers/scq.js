@@ -1037,7 +1037,7 @@ function simulation_Solver() {
                 duration: 4000,
                 easing: 'swing',
                 step: function (now) {
-                    $(this).text(parseFloat(now).toFixed(2));
+                    $(this).text(now.toString().substring(0,5));
                 }
             });
         });
@@ -1046,33 +1046,33 @@ function simulation_Solver() {
     },4000);
 
     avg_waiting=wait_total/solved_customer_list.length;
-    avg_waiting_time.innerHTML=parseFloat(avg_waiting).toFixed(2).toString().substring(0,5);
+    avg_waiting_time.innerHTML=avg_waiting.toString().substring(0,5);
     avg_waiting_time.style.opacity='unset';
     avg_service=total_service/solved_customer_list.length;
-    avg_service_time.innerHTML=parseFloat(avg_service).toFixed(2).toString().substring(0,5);
+    avg_service_time.innerHTML=avg_service.toString().substring(0,5);
     avg_service_time.style.opacity='unset';
     avg_tba=solved_customer_list[solved_customer_list.length-1].arrival_time/(solved_customer_list.length-1);
 
-    avg_tba_field.innerHTML=parseFloat(avg_tba).toFixed(2).toString().substring(0,5);
+    avg_tba_field.innerHTML=avg_tba.toString().substring(0,5);
     avg_tba_field.style.opacity='unset';
     if (who_waits>0){
         avg_those_waits=wait_total/who_waits;
     }else{
         avg_those_waits=0;
     }
-    avg_waiting_of_who_waits.innerHTML=parseFloat(avg_those_waits).toFixed(2).toString().substring(0,5);
+    avg_waiting_of_who_waits.innerHTML=avg_those_waits.toString().substring(0,5);
     avg_waiting_of_who_waits.style.opacity='unset';
     avg_tcs=total_tcs/solved_customer_list.length;
-    avg_tcs_field.innerHTML=parseFloat(avg_tcs).toFixed(2).toString().substring(0,5);
+    avg_tcs_field.innerHTML=avg_tcs.toString().substring(0,5);
     avg_tcs_field.style.opacity='unset';
     probability_tcw=who_waits/solved_customer_list.length;
-    probability_tcw_field.innerHTML=parseFloat(probability_tcw).toFixed(2).toString().substring(0,5);
+    probability_tcw_field.innerHTML=probability_tcw.toString().substring(0,5);
     probability_tcw_field.style.opacity='unset';
     idle_server=total_idle_time/solved_customer_list[solved_customer_list.length-1].time_service_ends;
-    probability_of_idle_server.innerHTML=parseFloat(idle_server).toFixed(2).toString().substring(0,5);
+    probability_of_idle_server.innerHTML=idle_server.toString().substring(0,5);
     probability_of_idle_server.style.opacity='unset';
     busy_server=1-idle_server;
-    probability_of_busy_server.innerHTML=parseFloat(busy_server).toFixed(2).toString().substring(0,5);
+    probability_of_busy_server.innerHTML=busy_server.toString().substring(0,5);
     probability_of_busy_server.style.opacity='unset';
 
     var end=Date.now();
